@@ -1,0 +1,42 @@
+git 사용법 
+참고 자료  : https://www.youtube.com/watch?v=FXDjmsiv8fI&ab_channel=%EC%96%84%ED%8C%8D%ED%95%9C%EC%BD%94%EB%94%A9%EC%82%AC%EC%A0%84
+
+빈 git 저장소를 만듭니다.
+git init
+
+이름등록
+git config user.name "steadykyu"
+
+이메일 등록
+git config user.email "awakekyu1@google.com"
+
+상태창을 봅니다.
+git status
+
+지금 상태를 git의 타임캡슐에 넣는다.
+git add -A
+
+캡슐의 상태를 나타내기위한 커밋을 남기고, 캡슐을 저장한다!
+git commit -m "First Commit"
+
+viewer editor (VI ) mode에서 나오기 
+:q
+
+-----------------------------------------------------과거로 바꾸자
+지금까지의 히스토리를 본다.
+git log
+
+돌아갈 시점 (앞 코드 6자리)을 입력하면 그 과거시점으로 돌아간다. 미래 있던 로그(캡슐)를 다 지운다.
+git reset c0b86d --hard
+
+-----------------------------------------------------과거로 바꾸자
+입력한 시점(앞 코드 6자리) 전 시점으로 돌아간다. 미래 있던 로그(캡슐)는 그대로 둔다.
+git revert 4291e8
+
+VI mode 에서 저장하는 것
+:wq
+이후에
+git log로 보면, 현재 시점 이후가 지워진것이 아니라 revert가 적혀있는 새 캡슐이 만들어져있다.
+
+-----------------------------------------------------
+git branch는 당장필요없어서 적지는 않음.
