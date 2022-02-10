@@ -6,11 +6,23 @@
 + 1번, 2번중 1번의 방법을 쓰는 것이 좋다.
 + 주의할 점은 텍스트 띄어쓰기를 "-"로 명시해주어야한다. 또한 영어는 모두 소문자로 작성
 + 마크다운 글만 올리면 알아서 목차문법으로 바꿔주는 사이트 : https://ecotrust-canada.github.io/markdown-toc/
-+ 목차끼리 문단이 안바뀌므로 br tag 나 두번 enter를 쳐서 띄어줘야합니다.
++ 목차끼리 문단이 안바뀌므로 \<br\>  나 두번 enter를 쳐서 띄어줘야합니다.
 
-1.[목차](#목차-만들기)
 
-2.[제목 부제목 만들기](#1.제목-부제목-만들기)
+- [1.제목 부제목 만들기](#1----------)
+- [2. Emphasis 강조](#2-emphasis---)
+- [3. Blockquotes 인용](#3-blockquotes---)
+- [4.Lists 목록](#4lists---)
+  * [4.1 Unordered lists 순서가 없는 목록](#41-unordered-lists----------)
+  * [4.2 Ordered lists 순서가 있는 목록](#42-ordered-lists----------)
+- [5. Backslash Escapes 백슬래쉬 이스케이프](#5-backslash-escapes-----------)
+- [6. Images 이미지](#6-images----)
+- [7. External Links 외부 링크](#7-external-links------)
+- [8. Fenced Code Blocks 코드 블럭 (텍스트 상자)](#8-fenced-code-blocks---------------)
+- [9.Task list 만들기](#9task-list----)
+- [10.Horizontal Rules 수평선](#10horizontal-rules----)
+- [11. Table 테이블](#11-table----)
+
 
 # 1.제목 부제목 만들기
 ```
@@ -121,12 +133,69 @@ My github <https://github.com/steadykyu>;
 # 8. Fenced Code Blocks 코드 블럭 (텍스트 상자)
 \`\`\`
 This is code blocks.
-\`\`\`
-~~~
+\`\`\`<br>
+\~\~\~
 This is code blocks.
-~~~
+\~\~\~
 	4 spaces
 ```javascript
 function test() {
  console.log("look ma’, no spaces");
 }
+```
++ \`\`\` 또는 \~\~\~를 이용해서 사용가능하다.
++ \`\`\` 옆에 언어를 적어주면, syntax color 적용이 가능하다.
+
+# 9.Task list 만들기
++ 줄 앞에 - [x]를 써서 완료된 리스트 표시.
++ 줄 앞에 - [ ]를 써서 미완료된 리스트 표시.
++ 체크 안에서 강조 외에 여러 기능을 사용할 수 있습니다.
+```
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- [x] @mentions, #refs, [links](),**formatting**, and <del>tags</del> supported
+- [x] list syntax required (anyunordered or ordered listsupported)
+```
+## 결과
+- [x] this is a complete item
+- [ ] this is an incomplete item
+- [x] @mentions, #refs, [links](),**formatting**, and <del>tags</del> supported
+- [x] list syntax required (anyunordered or ordered listsupported)
+
+# 10.Horizontal Rules 수평선
++ - 또는 * 또는 _ 을 3개 이상 작성.
++ 단, -을 사용할 경우 header로 인식할 수 있으니 이 전 라인은 비워두어야 합니다.
+```
+* * *
+***
+*****
+- - -
+-------------------
+```
+* * *
+***
+*****
+- - -
+-------------------
+
+# 11. Table 테이블
++ 헤더와 셀을 구분할 때 3개 이상의 -(hyphen/dash) 기호가 필요합니다.
++ 헤더 셀을 구분하면서 :(Colons) 기호로 셀(열/칸) 안에 내용을 정렬할 수 있습니다.(
++ 가장 좌측과 가장 우측에 있는 |(vertical bar) 기호는 생략 가능합니다.
+```
+테이블 정렬
+
+헤더1|헤더2|헤더3
+:---|:---:|---:
+Left|Center|Right
+1|2|3
+4|5|6
+7|8|9
+```
+## 결과
+헤더1|헤더2|헤더3
+:---|:---:|---:
+Left|Center|Right
+1|2|3
+4|5|6
+7|8|9
