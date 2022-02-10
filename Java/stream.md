@@ -60,3 +60,52 @@ public class ArrayListStreamTest {
 3. 스트림의 연산은 기존 자료를 변경하지 않는다. <br>
   (스트림 연산을 위한 메모리 공간이 따로 존재한다.)
 4. 스트림의 연산은 중간연산/최종연산이 있다.
+
+## 4.reduce연산
+프로그래머가 기능을 지정해줄 수 있다.
+JDK에서 제공하는 reduce() 메서드의 정의
+```
+T reduce(T identify, BinaryOperator<T> accumulator)
+```
+### reduce 사용하기
+람다식으로 구현하기
+```java
+import java.util.Arrays;
+
+public class ReduceTest2 {
+    public static void main(String[] args){
+        String[] greetings = {"안녕하세요~~~", "hello", "Good morning", "반갑습니다^^"};
+        System.out.println(Arrays.stream(greetings).reduce("",(s1,s2)->{
+            if(s1.getBytes().length >= s2.getBytes().length)
+                return s1;
+            else return s2;}));
+    };
+}
+```
++ reduce()는 어떤 람다식이 전달되느냐에 따라 다양한 연산 수행이 가능한 최종 연산이다.
++ 초기값 "" 와 "안녕하세요\~\~\~" , "안녕하세요\~\~\~"와 "hello"비교 방식으로 해서 가장 긴 "안녕하세요\~\~\~"가 출력된다.
++ 위는 람다식으로 reduce를 구현한 방식이다.
++ 아래 java 처럼 reduce의 BinaryOperator를 구현해줄 수 있다. 
++ BinaryOperator는 apply() 추상메서드를 가지고 있으므로, apply메서드를 구현해주면 된다.
+
+클래스에 BinaryOperator구현하기
+```java
+class CompareString implements BinaryOperator<String>{
+	@Override
+	public String apply(String s1, String s2) {			//BinaryOperator의 apply 추상메서드를 구현해줘야 한다.
+		if (s1.getBytes().length >= s2.getBytes().length) return s1;
+		else return s2;
+	}
+}
+
+public class ReduceTest {
+	public static void main(String[] args) {
+		String[] greetings = {"안녕하세요~~~", "hello", "Good morning", "반갑습니다^^"};
+		String str = Arrays.stream(greetings).reduce(new CompareString()).get(); //BinaryOperator를 구현한 클래스 이용
+		System.out.println(str);		                        
+	}
+}
+```
++ reduce의 BinaryOperator를 구현해줄 수 있다. 
++ BinaryOperator는 apply() 추상메서드를 가지고 있으므로, apply메서드를 구현해주면 된다.
++ reduce(구현메서드) 는 Optional을 반환해준다. 그러므로 get()으로 String 값을 꺼내서 str에 참조시켜주었다.
