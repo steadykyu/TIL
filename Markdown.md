@@ -11,7 +11,7 @@
 
 
 # 목차
-+ [1.제목 부제목 만들기](#1.-제목-부제목-만들기)
++ [1.제목 부제목 만들기](#1-제목-부제목-만들기)
 + [2. Emphasis 강조](#2-emphasis-강조)
 + [3. Blockquotes 인용](#3-blockquotes-인용)
 + [4.Lists 목록](#4lists-목록)
@@ -20,7 +20,7 @@
 + [5. Backslash Escapes 백슬래쉬 이스케이프](#5-backslash-escapes-백슬래쉬-이스케이프)
 + [6. Images 이미지](#6-images-이미지)
 + [7. External Links 외부 링크](#7-external-links-외부-링크)
-+ [8. Fenced Code Blocks 코드 블럭(텍스트 상자)](#8-fenced-code-blocks-코드-블럭\(텍스트-상자\))
++ [8. Fenced Code Blocks 코드 블럭(텍스트 상자)](#8-fenced-code-blocks-코드-블럭텍스트-상자)
 + [9.Task list 만들기](#9task-list-만들기)
 + [10.Horizontal Rules 수평선](#10horizontal-rules-수평선)
 + [11. Table 테이블](#11-table-테이블)
