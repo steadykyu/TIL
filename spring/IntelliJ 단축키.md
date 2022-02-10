@@ -2,7 +2,7 @@
 앞으로 Spring을 사용하는데 있어, IntelliJ 단축키들을 잘 알고 있으면 생산성을 높일 수 있을 것이라 생각함.
 
 # 목차 
-- [alt+enter](#alt-enter)
+- [alt+enter](#altenter)
 - [F2](#f2)
 - [alt+1 and esc](#alt-1-and-esc)
 - [ctrl+e](#ctrl-e)
