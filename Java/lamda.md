@@ -75,7 +75,7 @@ public interface StringConcat {
 }
 ```
 인터페이스 생성
-```
+```java
 public static void main(String[] args) {
 
 		String s1 = "Hello";
