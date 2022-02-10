@@ -116,7 +116,7 @@
 2. 링크 이미지
 3. 다른 경로의 이미지 + 크기 바꾸기<br>
 
-<img src ="https://github.com/steadykyu/TIL/blob/master/GitHub-logo.png" width="50%" height="50%">
+<img src ="https://github.com/steadykyu/TIL/blob/master/Markdwon/GitHub-logo.png" width="50%" height="50%">
 
 # 7. External Links 외부 링크
 ```
