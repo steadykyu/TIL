@@ -3,17 +3,16 @@
 [목차 텍스트1](#링크가-걸리는-텍스트)
 [목차 텍스트2](#-----------) (공백포함 11글자)
 ```
-+ 위의 문법으로 작성이 가능하다.
 + 1번, 2번중 1번의 방법을 쓰는 것이 좋다.
-+ 주의할 점은 텍스트 띄어쓰기를 "-"로 명시해주어야한다.
++ 주의할 점은 텍스트 띄어쓰기를 "-"로 명시해주어야한다. 또한 영어는 모두 소문자로 작성
 + 마크다운 글만 올리면 알아서 목차문법으로 바꿔주는 사이트 : https://ecotrust-canada.github.io/markdown-toc/
 + 목차끼리 문단이 안바뀌므로 br tag 나 두번 enter를 쳐서 띄어줘야합니다.
 
-1.[목차](#목차-만들기) <br>
-2.[제목,부제목 만들기](#1.제목-부제목-만들기)
-  2-1
+1.[목차](#목차-만들기)
 
-# 1. 제목 부제목 만들기
+2.[제목 부제목 만들기](#1.제목-부제목-만들기)
+
+# 1.제목 부제목 만들기
 ```
 # 가장 큰 텍스트
 ## 다음
@@ -102,4 +101,32 @@
 2. 링크 이미지
 3. 다른 경로의 이미지 + 크기 바꾸기<br>
 
-<img src ="https://github.com/steadykyu/TIL/GitHub-logo.png" width="50%" height="50%">
+<img src ="https://github.com/steadykyu/TIL/blob/master/GitHub-logo.png" width="50%" height="50%">
+
+# 7. External Links 외부 링크
+```
+[Google](http://www.google.com "구글")
+[Naver](http://www.naver.com "네이버")
+구글 www.google.com; 꺽쇠없음
+네이버 <www.naver.com>; 꺽쇠있음
+My github <https://github.com/steadykyu>;
+```
+## 결과
+[Google](http://www.google.com "구글")
+[Naver](http://www.naver.com "네이버")
+구글 www.google.com; 꺽쇠없음
+네이버 <www.naver.com>; 꺽쇠있음
+My github <https://github.com/steadykyu>;
+
+# 8. Fenced Code Blocks 코드 블럭 (텍스트 상자)
+\`\`\`
+This is code blocks.
+\`\`\`
+~~~
+This is code blocks.
+~~~
+	4 spaces
+```javascript
+function test() {
+ console.log("look ma’, no spaces");
+}
