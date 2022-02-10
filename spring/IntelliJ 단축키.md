@@ -4,14 +4,14 @@
 # 목차 
 - [alt+enter](#altenter)
 - [F2](#f2)
-- [alt+1 and esc](#alt-1-and-esc)
-- [ctrl+e](#ctrl-e)
-- [ctrl+b](#ctrl-b)
-- [alt+f7](#alt-f7)
-- [shift+ctrl+enter](#shift-ctrl-enter)
-- [ctrl+alt+l](#ctrl-alt-l)
-- [Shift+Ctrl+Alt+T](#shift-ctrl-alt-t)
-- [shift+ctrl+a](#shift-ctrl-a)
+- [alt+1 and esc](#alt1-and-esc)
+- [ctrl+e](#ctrle)
+- [ctrl+b](#ctrlb)
+- [alt+f7](#altf7)
+- [shift+ctrl+enter](#shiftctrlenter)
+- [ctrl+alt+l](#ctrlaltl)
+- [Shift+Ctrl+Alt+T](#shiftctrlaltt)
+- [shift+ctrl+a](#shiftctrla)
 - [특성상황에 쓰지만 알면 편한 단축키](#특성상황에-쓰지만-알면-편한-단축키)
 ## alt+enter
 이 키보드 단축키는 현재 컨텍스트에 대한 액션을 표시하여 뭐든지 수정하는 데 사용할 수 있습니다.
