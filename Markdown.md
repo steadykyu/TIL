@@ -20,7 +20,7 @@
 + [5. Backslash Escapes 백슬래쉬 이스케이프](#5-backslash-escapes-백슬래쉬-이스케이프)
 + [6. Images 이미지](#6-images-이미지)
 + [7. External Links 외부 링크](#7-external-links-외부-링크)
-+ [8. Fenced Code Blocks 코드 블럭 (텍스트 상자)](#8-fenced-code-blocks-코드-블럭-(텍스트-상자))
++ [8. Fenced Code Blocks 코드 블럭(텍스트 상자)](#8-fenced-code-blocks-코드-블럭\(텍스트-상자\)
 + [9.Task list 만들기](#9task-list-만들기)
 + [10.Horizontal Rules 수평선](#10horizontal-rules-수평선)
 + [11. Table 테이블](#11-table-테이블)
@@ -132,7 +132,7 @@ My github <https://github.com/steadykyu>;
 네이버 <www.naver.com>; 꺽쇠있음
 My github <https://github.com/steadykyu>;
 
-# 8. Fenced Code Blocks 코드 블럭 (텍스트 상자)
+# 8. Fenced Code Blocks 코드 블럭(텍스트 상자)
 \`\`\`
 This is code blocks.
 \`\`\`<br>
@@ -165,7 +165,7 @@ function test() {
 - [x] list syntax required (anyunordered or ordered listsupported)
 
 # 10.Horizontal Rules 수평선
-+ - 또는 * 또는 _ 을 3개 이상 작성.
++ "-" 또는 * 또는 _ 을 3개 이상 작성.
 + 단, -을 사용할 경우 header로 인식할 수 있으니 이 전 라인은 비워두어야 합니다.
 ```
 * * *
@@ -201,3 +201,8 @@ Left|Center|Right
 1|2|3
 4|5|6
 7|8|9
+
+
+# 출처
+https://github.com/jinkyukim-me/markdown_ko
+https://caileb.tistory.com/201
