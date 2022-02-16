@@ -109,7 +109,7 @@
 ```
 ![alt 토마토](/img/tomato.jpg)
 ![alt man](/img/man_laptop.jpg)
-![alt gitHubLogo](img src ="https://github.com/steadykyu/TIL/GitHub-logo.png" width="50%" height="50%")
+<img src ="https://github.com/steadykyu/TIL/GitHub-logo.png" width="50%" height="50%">
 ```
 각 순서대로 
 1. 인라인 이미지
