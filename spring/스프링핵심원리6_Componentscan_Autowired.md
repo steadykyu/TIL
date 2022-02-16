@@ -8,7 +8,7 @@
 핵심주제 : 스프링 컨테이너를 왜사용하는걸까?
 + 현재까지의 나의 생각
 ****
-+ App을 만드는데, 좋은객체지향설계로 만들 수 있다.
++ App을 만드는데, 좋은객체지향설계로 만들 수 있다.(다형성,OCP, DIP만족시키고, DI를 좀더 편하게 제공)
 ****
 + BeanFactory 에 있는 빈 조회기능들, 특히 ApplicationContext interface에 있는 부가기능들로 Java App을 제작하는데 도움을 줄 수 있다.
 ****
@@ -18,7 +18,7 @@
 + @Configuration을 설정정보 클래스(AppConfig.class)에 입력해주면, Bean 컨테이너는 싱글톤 컨테이너로 만들어진다. 
 ****
 + 스프링빈을 몇천개 만들어야 하는 상황이라면, @Bean을 몇천번 입력해야할 뿐더러 실수가 나올 확률이 클 것이다.
-+ 이럴때는 구현체에 @ComponentScan과 @Component, 구현체의 생성자에 @Autowired를 사용하면 스프링 빈을 만들어주고, Autowired룰 방식에 따라 자동으로 DI를 해준다.
++ 이럴때는 구현체에 @ComponentScan과 @Component, 구현체의 생성자에 @Autowired를 사용하면 스프링이 컨테이너 안에 빈이름과 빈객체을 만들어주고, Autowired룰 방식에 따라 자동으로 DI를 해준다.
 + 그러므로 AppConfig(설정정보)에 작성해야했던 소스코드를 저 두종류의 애노테이션으로 만들 수 있게 된 것이다.
 
 ## 목차 
