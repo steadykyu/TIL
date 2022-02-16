@@ -17,8 +17,9 @@
 + 웹사이트는 동시에 오는 요청이 많다. 이에 대해 Bean 컨테이너를 싱글톤패턴으로 만들어 주는 @Configuration을 사용하면 공유하는 객체를 이용하여 메모리 낭비를 줄일 수 있다.
 + @Configuration을 설정정보 클래스(AppConfig.class)에 입력해주면, Bean 컨테이너는 싱글톤 컨테이너로 만들어진다. 
 ****
-
-
++ 스프링빈을 몇천개 만들어야 하는 상황이라면, @Bean을 몇천번 입력해야할 뿐더러 실수가 나올 확률이 클 것이다.
++ 이럴때는 구현체에 @ComponentScan과 @Component, 구현체의 생성자에 @Autowired를 사용하면 스프링 빈을 만들어주고, Autowired룰 방식에 따라 자동으로 DI를 해준다.
++ 그러므로 AppConfig(설정정보)에 작성해야했던 소스코드를 저 두종류의 애노테이션으로 만들 수 있게 된 것이다.
 
 ## 목차 
 
@@ -93,7 +94,7 @@ public class MemberServiceImpl implements MemberService {
 + 실무에서는 default형태로, 스프링 부트의 대표 시작 정보인 @SpringBootApplication에 두는 것이좋다.(설정 정보 자체가 프로젝트를 대표하는 정보이므로)
 
 ### 컴포넌트 스캔 기본 대상
-아래의 애노테이션은 스프링이 @Componentscan 대상에 포함하도록 **기본적**으로 지원하고 있다.
+아래의 애노테이션은 @ComponentScan 대상에 포함하도록 스프링이 **기본적**으로 지원하는 기능이다.
 + @Component : 컴포넌트 스캔에서 사용
 + @Controlller : 스프링 MVC 컨트롤러에서 사용
 + @Service : 스프링 비즈니스 로직에서 사용
