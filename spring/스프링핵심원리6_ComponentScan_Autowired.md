@@ -75,7 +75,8 @@ public class MemberServiceImpl implements MemberService {
 
 #### 2. @Autowired 의존관계 자동 주입
 + 생성자에 @Autowired 를 지정하면, 스프링 컨테이너가 자동으로 해당 스프링 빈을 찾아서 주입한다.
-+ 이때 기본 조회 전략은 타입이 같은 빈을 찾아서 주입한다.(만약 타입과 이름이 같다면? - 중복 등록과 충돌 목차에서 확인)
++ 이때 기본 조회 전략은 타입이 같은 빈을 찾아서 주입한다.(만약 이름이 같다면? - 중복 등록과 충돌 목차에서 확인)
++ 만약 타입이 같다면? - 핵심원리7.md의 조회2개이상의 빈을 참고하자.(여러 방법들로 해결가능)
 + getBean(MemberRepository.class) 와 동일한 개념이다.(Autowired가 더 기능이 많다)
 + 생성자에 파라미터가 많아도 다 찾아서 자동으로 주입한다.
 
@@ -152,6 +153,7 @@ public class ComponentFilterAppConfigTest {
 + CUSTOM: TypeFilter 이라는 인터페이스를 구현해서 처리 ex) org.example.MyTypeFilter
 > 최근 스프링 부트는 컴포넌트 스캔을 기본으로 제공하는데, 개인적으로는 옵션을 변경하면서 사용하기 보다는 스프링의 기본 설정에 최대한 맞추어 사용하는 것을 권장하고, 선호하는 편이다
 ## 중독 등록과 충돌
++ 빈 이름들이 같은경우 어떻게 하는지 알아보자.
 ### 1. 자동 빈 등록 vs 자동 빈 등록
 + 스프링이 ConflictingBeanDefinitionException 예외를 발생시킨다.
 ### 2. 수동 빈 등록 vs 자동 빈 등록
