@@ -35,3 +35,19 @@
 + 원격레파지토리 안의 master 브랜치에 값 넣어주기.
 + 한번해놓으면 이후로는 **git push**만 하면 된다.(알아서 master branch에서 작업한다.)
 
+## 3. 서버 디렉토리 업데이트하고 푸시하기.
+
+### 1.git fetch
++ 업데이트 상황을 보기위해
+### 2.git status
++ 상태봐보고 nothing to commit, working tree clean 이면 바로 푸시해도 괜찮다.
++ 그렇지 않다면 pull로 깃헙 업데이트 상황을 로컬에 최신화 시켜주자.
+### 3. git pull origin master
++ 자료를 가져오므로써 동기화시켜준다.
+
+### 4. git add -A 
+###    git commit -m "First Commit"
++ 로컬 업데이트 상황을 깃에 추가하고, 커밋해주자.
+### 5. git push
++ 로컬 업데이트 상황을 push하자.
+
