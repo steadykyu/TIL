@@ -1,6 +1,9 @@
 ## 목적
 서버에 폴더에 있는 프로젝트 + @를 github repository와 연동시키자.
 
+
+## Visual Studio Code에서 작업
++ 작업할 폴더를 Visual Studio Code에 드래그한다.
 ## 1. 서버 디렉토리에 git만들고 버전관리 시작하기.
 ### 1. git init
 + 이러면 현재 디렉토리에 .git이라는 파일이 생성됩니다.
