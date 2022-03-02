@@ -34,7 +34,7 @@ class ArrayEx16 {
 ### 해결법 
 #### 문제 2 해결
 ```
-- .java파일을 컴파일하면 Ms 운영체제의 디폴트인 cp949로 cmd가 인코딩을 해서 글자가 깨졌다. 
+- .java파일을 cmd에서 컴파일하면 Ms 운영체제의 디폴트인 cp949로 cmd가 인코딩을 해서 글자가 깨졌다. 
 - javac ArrayEx16.java -encoding UTF-8 로 해결(컴파일을 UTF-8)로 인코딩함
 ```
 
