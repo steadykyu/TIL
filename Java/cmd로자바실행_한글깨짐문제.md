@@ -14,7 +14,8 @@
 그렇기 때문에 우리는 cmd창 어느경로에서도 저 두 실행파일을 사용할 수 있는것이다.
 ```
 
-## 문제 
+## 문제
+
 1. java 로 인텔리제이안 .class를 실행하면 메인클래스가 없다면서 실행되지 않았다. (해결법 참고)
 2. IDE폴더의 .java 파일을 실행시켰으나 글자가 깨지는 문제가 발생했다.
 
@@ -30,7 +31,8 @@ class ArrayEx16 {
     }
 }
 ```
-+ mainclasserror
+<img src = https://github.com/steadykyu/TIL/blob/master/Java/img/mainclasserror.png>
+
 ### 해결법 
 #### 문제 2 해결
 ```
@@ -45,7 +47,7 @@ class ArrayEx16 {
 - 그러므로 현재 경로를 뜻하는 .;를 붙여 현재 경로의 class파일을 찾을수 있도록 만들었다.
 ```
 + 그래도 바로 문제가 해결되지가 않았는데 다음과 같은 작업을 진행하였다.
-mainclasssolution
+<img src = https://github.com/steadykyu/TIL/blob/master/Java/img/mainclasssolution.png>
 
 + javac는 소스코드가 있는 패키지 않에서 진행해야했지만
 + java 패키지.클래스명 으로 처리해야 문제가 발생하지 않았다. 
