@@ -76,9 +76,13 @@ Java와 프레임워크를 마스터할 수 있으면 좋겠지만, 겪어도 �
 ***
 현재 해야할 일
 - [x] 생활코딩의 Web - html, css, js 를 수강
+- [ ] 필수 프론트엔드(html, css, js) 지식 이해(참고 : https://academy.dream-coding.com/pages/912e50 )
+
+
+
 ***
 해보고싶은일 (미해결)
-- [ ] 필수 프론트엔드(html, css, js) 지식 이해
+
 - [ ] DB 설계 및 기술들
 - [ ] API 디자인( Rest API, GraphQL, GDQL등..)
 - [ ] 약간의 보안지식
