@@ -42,7 +42,7 @@ span{
 }
 ```
 
-<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_1.png" width ="50%" height = "50%">
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_1.png" width ="30%" height = "30%">
 
 + 대표적인 defalut값이 block level인 div tag 와 inline level인 span tag에 display를 이용하면 설정값을 바꿀 수 있다.
 + 이때 설정값은 **inline**은 content를 꾸며주는 것이기 때문에 값이 있어야 Web browser에 나타낼 수 있다.
