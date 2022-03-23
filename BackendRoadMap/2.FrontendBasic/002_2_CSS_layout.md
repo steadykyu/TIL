@@ -41,7 +41,9 @@ span{
   display: block;
 }
 ```
-+그림 2-1
+
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_1.png" width ="50%" height = "50%>
+
 + 대표적인 defalut값이 block level인 div tag 와 inline level인 span tag에 display를 이용하면 설정값을 바꿀 수 있다.
 + 이때 설정값은 **inline**은 content를 꾸며주는 것이기 때문에 값이 있어야 Web browser에 나타낼 수 있다.
 + 그리고 **inline**은 content 크기에 맞춰서 크기가 결정된다.
@@ -104,17 +106,20 @@ css에서 position는 default 값으로 static을 가지고 있다. 이는 html�
 
 > relative
 
-+ 그림 2_2
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_2.png">
+
 원래의 ITEM의 위치에서 우리가 설정한 값만큼 이동시키도록 할수 있다.
 
 > absolute
 
-+ 그림 2_3
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_3.png">
+
 내 아이템이 담겨있는 상자(container 범위) 안에서 설정한 값만큼 이동한다.
 
 > fixed
 
-+ 그림 2_4
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_4.png">
+
 상자가 아닌 밖의 Web page에서 설정한 값만큼 이동한다.
 
 > sticky
