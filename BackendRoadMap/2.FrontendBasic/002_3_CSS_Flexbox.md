@@ -68,7 +68,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 </body>
 </html>
 ```
-+ 예약어 확인하기
++ 주석에 있는 단축키 확인하기
 
 > Css 
 ```css
