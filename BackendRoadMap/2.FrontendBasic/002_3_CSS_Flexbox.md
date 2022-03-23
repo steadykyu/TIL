@@ -12,6 +12,10 @@ Box나 ITEM들을 행 또는 열로 자유자재로 배치켜줄수 있는 기�
 
 image와 text들을 어떻게 배치하는지 설정하는 기능이다.텍스트를 기준으로 left, center, right으로 배치할수 있다.(신문에 있는 이미지와 비슷함)
 
++ 참고사이트
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/float : float MDN
+
 ## 4.1 container
 ### concept1
 
@@ -28,6 +32,13 @@ image와 text들을 어떻게 배치하는지 설정하는 기능이다.텍스�
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_8.png" width = "40%" heigth = "40%">
 
 + **중심축과 반대축을 내가 원하는대로 설정할 수 있다.(그림의 main axis-중심축)**
+
+
+> Flexbox 참고사이트
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/ 
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
 
 코드를 통해 두가지 핵심 개념이  내용인지 확인해보자 <br>
 
@@ -166,10 +177,6 @@ image와 text들을 어떻게 배치하는지 설정하는 기능이다.텍스�
 > color 관련 참고사이트
 
 https://material.io/resources/color/#!/?view.left=0&view.right=0
-
-> Flexbox 참고사이트
-
-https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 
 ## 4.2 Item 속성값들
