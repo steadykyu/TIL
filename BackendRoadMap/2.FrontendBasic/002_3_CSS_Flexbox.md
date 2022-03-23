@@ -40,7 +40,9 @@ https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
 
-코드를 통해 두가지 핵심 개념이  내용인지 확인해보자 <br>
+코드를 통해 두가지 핵심 개념이 내용인지 확인해보자 <br>
+
+글만 보면 복잡하므로, 꼭 코드를 쳐보거나 그게 아니라면, MDN에서 활용예시를 보면서 이해하자.
 
 ### 4.1.1 코드작성
 ```html
@@ -142,21 +144,22 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 > flex-direction
 
 + row, row-reverse, column, column-reverse 로 **중심축**을 지정 할 수 있다.
-+ -reverse시 box의 start, end 의 순서가 반대로 바뀐다.
++ -reverse시 요소들(ITEMS)의 start, end 의 순서가 반대로 바뀌는점에 유의하자.
 
 > flex-wrap
 
-+ 그림 2-9
-+ 그림은 wrap상태이다.
 + flex-wrap은 기본값은 nowrap으로 공간 부족시 box크기를 전체적으로 줄인다.
 + wrap을 하면 row box가 공간이 부족할시 아래로 내려간다. 
++ -reverse시 요소들(ITEMS)의 start, end 의 순서가 반대로 바뀌는점에 유의하자.
 
 > flex-flow
 
 + 한번에 direction과 wrap 여부를 정해 줄 수 있다.
 
 > justify-content
-+ 그림 2_10
+
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_10.png" width ="50%" height = "50%">
+
 + 중심축(main axis)에서 어떻게 배치할지 결정한다. 단 위의 -reverse와 다르게 box 순서는 바뀌지 않는다. 
 + 예 ) flex-start, flex-end, space-around, space-evenly, space-between
 
