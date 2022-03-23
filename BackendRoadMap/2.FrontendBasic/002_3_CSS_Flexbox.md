@@ -277,3 +277,10 @@ grow, shrink, basis 값을 한번에 정해줄 수 있다. (ex) 2 2 auto;)
 + container의 align 처럼 세로축에서의 정렬대로 배치시켜준다.
 + 단 모든 ITEM이 아닌 지정한 ITMP에만 정렬기준 대로 배치시켜준다.
 
+## 연습용 사이트
+
+https://flexboxfroggy.com/#ko
+
+## 출처
+
+https://www.youtube.com/watch?v=7neASrWEFEM&ab_channel=%EB%93%9C%EB%A6%BC%EC%BD%94%EB%94%A9by%EC%97%98%EB%A6%AC
