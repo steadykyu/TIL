@@ -169,16 +169,6 @@ https://flukeout.github.io/         : CSS dinner 게임.
 + Negation Pseudo-class( :not(X) )
 ```
 
-# 3. 스타일링
-# 4. 헷갈리는 컨셉
-# 5. Flex box(CSS의 꽃)
-
-
-
-
-
-
-
 
 ## 출처 
 드림코딩 무료강좌 : https://www.notion.so/277f2906743742ae8f19b6494581058f
