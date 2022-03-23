@@ -15,13 +15,16 @@ image와 text들을 어떻게 배치하는지 설정하는 기능이다.텍스�
 ## 4.1 container
 > concept1
 
-+ 그림 2_5
-+ 그림 2_6
-+ 그림 2_7
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_5.png" width = "40%" heigth = "40%">
+
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_6.png" width = "40%" heigth = "40%">
+
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_7.png" width = "40%" heigth = "40%">
  
 + 컨테이너에 대한 설정과 컨테이너 안 ITEM에 관한 설정을 지정해 줄수 있다.
 
 > concept2
 
-+ 그림 2_8
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_8.png" width = "40%" heigth = "40%">
+
 + 중심축과 반대축을 설정할 수 있다.(그림의 main axis-중심축)
