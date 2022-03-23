@@ -146,6 +146,7 @@ selector{
 + margin 는 content 밖에 존재하는 space를 말한다.
 
 + 자세한 내용은 아래링크를 참고하자
+
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference  :  레퍼런스 page <br>
 https://flukeout.github.io/         : CSS dinner 게임.
 
