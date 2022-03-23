@@ -142,7 +142,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 > flex-direction
 
 + row, row-reverse, column, column-reverse 로 **중심축**을 지정 할 수 있다.
-+ -reverse시 box의 순서도 반대로 바뀐다.
++ -reverse시 box의 start, end 의 순서가 반대로 바뀐다.
 
 > flex-wrap
 
@@ -157,7 +157,7 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 
 > justify-content
 + 그림 2_10
-+ 중심축(main axis)을 지정한후 어떻게 배치할지 결정한다. 단 위의 -reverse와 다르게 box 순서는 바뀌지 않는다. 
++ 중심축(main axis)에서 어떻게 배치할지 결정한다. 단 위의 -reverse와 다르게 box 순서는 바뀌지 않는다. 
 + 예 ) flex-start, flex-end, space-around, space-evenly, space-between
 
 > align-items
