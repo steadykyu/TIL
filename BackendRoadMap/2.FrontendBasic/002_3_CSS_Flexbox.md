@@ -162,11 +162,11 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_C
 
 > align-items
 
-+ 세로축에서의 배치를 결정해준다 
++ 반대축에서의 container 속 ITEM들의 정렬방식을 결정해준다 
 + top, center, baseline(텍스트 위치가 일치하도록) 등이 존재한다.
 
 > align-content
-+ 반대축을 중심으로 어떻게 배치할지 결정한다. 
++ 반대축을 중심으로 item들을 어떻게 배치할지 결정한다. 
 + justify-content 와 사용법은 같다.
 
 + flexbox는 대부분의 웹브라우저가 호환하고 있지만, 그 안의 attribtute 호환하지 않을 가능성이 높다. 그러므로 꼭 MDN에서 확인하고 사용하도록 하자.
