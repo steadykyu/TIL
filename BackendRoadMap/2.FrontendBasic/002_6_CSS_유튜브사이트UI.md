@@ -39,7 +39,7 @@ HTML5에 새롭게 추가된 요소로서, 목적지로 이동할 수 있도록 
 
 > wireframe 만들기
 
-<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/6_1.png">
+<img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/6_2.png">
 
 - 위 그림과 같이 디자이너가 어떠한 형태로 웹을 만들 것인지 디자인 한 형태를 **wireframe**이라고 한다. 이 wireframe을 잘 만들어두고 각각 **labeling**을 설정하자.
 
