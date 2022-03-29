@@ -10,7 +10,7 @@
 
 # 2.객체 지향 프로그래밍(Object Oriented Programming)
 
-- 내일 입력
+[객체지향언어](https://github.com/steadykyu/TIL/blob/master/Java/lamda.md)
 
 ## 2.1 사전적 정의
 
