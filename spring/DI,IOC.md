@@ -151,7 +151,7 @@ public class AppConfig {
 
 ```java
 public class MemberServiceImpl implements MemberService{
-    // 직접 주입하지 않고
+    // 직접 주입하지 않고, DIP를 위해 추상화(interface)에만 의존시키게 만든다.
     private final MemberRepository memberRepository;
 
     // 생성자를 통해 주입함.
@@ -216,7 +216,7 @@ public class MemberApp {
 
 ```java
 public class OrderServiceImpl implements OrderService{
-    // 직접주입 하지않고
+    // 직접 주입하지 않고, DIP를 위해 추상화(interface)에만 의존시키게 만든다.
     private final MemberRepository memberRepository;
     private DiscountPolicy discountPolicy;
 
