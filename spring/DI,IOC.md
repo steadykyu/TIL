@@ -12,13 +12,34 @@
 
 # 상황 요약
 
+> 회원 도메인 협력 관계
+
+<p align= "center">
+<img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_0_1.png">
+
+> 회원 도메인 클래스 다이어그램
+
+<p align= "center">
+<img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_0_2.png">
+
+> 회원 도메인 객체 다이어그램
+
+<p align= "center">
+<img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_0_3.png">
+
+> 주문 도메인 협력관계
+
 <p align= "center">
 <img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_1.png">
 </p>
 
+> 주문 도메인 클래스 다이어그램
+
 <p align= "center">
 <img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_2.png">
 </p>
+
+> 주문 도메인 객체 다이어그램
 
 <p align= "center">
 <img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/DI_3.png">
@@ -63,7 +84,9 @@ public class OrderServiceImpl implements OrderService{
 ```
 
 - 할인 정책을 RDP로 바꾸어주었다.
+
 - 역할과 구현 충실히 분리 -> OK
+
 - 다형성을 활용하여, 인터페이스와 객체를 분리 -> OK
 
 > 문제점
