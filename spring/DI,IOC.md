@@ -348,7 +348,7 @@ OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolic
 
 ## 3.2 DI - dependency injection
 
-> 정의
+> 정의(wiki pedia)
 
 ```
 In software engineering, dependency injection is a technique in which an object receives other objects that it depends on, called dependencies. Typically, the receiving object is called a client and the passed-in ('injected') object is called a service.
