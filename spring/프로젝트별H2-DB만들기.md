@@ -17,7 +17,7 @@ localhost:8082/세션키
 3-1) 오른쪽 하단에 H2 DataBase Engine 찾기 -> 오른쪽 클릭, Create a new database 찾기
 
 <p align= "center">
-<img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/h2_1.png">
+<img src= "https://github.com/steadykyu/TIL/blob/master/spring/img/H2_1.png">
 </p>
 
 3-2) ./[새DB이름] 작성하고 비밀번호를 생성한후 create 누르자.
