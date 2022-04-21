@@ -1,4 +1,5 @@
 ### 1. 새로운 다른 환경(다른 디렉토리, 서버 등)에 github 내용 불러오기
+왠만하면 바탕화면 에서 작업하면 된다.
 ```
 git clone https://github.com/steadykyu/TIL.git
 ```
@@ -9,6 +10,3 @@ git fetch
 
 git status
 ```
-
-### 3. 깃허브의 자료를 가져오므로써 동기화시켜준다.
-git pull origin master
