@@ -1,0 +1,85 @@
+알잡 유튜브 CT문제풀이 모음
+
+1. Ct 소개
+(https://youtu.be/pn7h3D_aTOM)
+2. 동적 계획법
+(https://youtu.be/8OGlq6zKOl0)
+3. 삼 거듭제곱 계산기
+(https://youtu.be/WHUiwMki0aY)
+4. 예상문제 풀이
+(https://youtu.be/PLAm5iAeyF8)
+(https://youtu.be/t-pjQsLDNMY)
+(https://youtu.be/uKGYor2WOpY)
+
+CT 1차에 나올만한 문제들을 백준에서 뽑아봤습니다.
+
+https://www.acmicpc.net/problem/2649
+
+https://www.acmicpc.net/problem/10169
+
+https://www.acmicpc.net/problem/11437
+
+https://www.acmicpc.net/problem/9007
+
+https://www.acmicpc.net/problem/18768
+
+https://www.acmicpc.net/problem/11055
+
+https://www.acmicpc.net/problem/1663
+
+https://www.acmicpc.net/problem/2565
+
+https://www.acmicpc.net/problem/9625
+
+https://www.acmicpc.net/problem/10050
+
+https://www.acmicpc.net/problem/2516
+
+https://www.acmicpc.net/problem/17615
+
+https://www.acmicpc.net/problem/19940
+
+https://www.acmicpc.net/problem/21758
+
+https://www.acmicpc.net/problem/21757
+
+https://www.acmicpc.net/problem/18768
+
+https://www.acmicpc.net/problem/3661
+
+https://www.acmicpc.net/problem/5550
+
+https://www.acmicpc.net/problem/1053
+
+https://www.acmicpc.net/problem/20055
+
+https://www.acmicpc.net/problem/2611
+
+https://www.acmicpc.net/problem/2533
+
+
+CT 2차에서 나올만한 문제들을 백준에서 뽑아봤습니다.
+
+https://www.acmicpc.net/problem/11399
+
+https://www.acmicpc.net/problem/1931
+
+https://www.acmicpc.net/problem/2649
+
+https://www.acmicpc.net/problem/1946
+
+https://www.acmicpc.net/problem/1202
+
+https://www.acmicpc.net/problem/1700
+
+https://www.acmicpc.net/problem/11000
+
+https://www.acmicpc.net/problem/2109
+
+https://www.acmicpc.net/problem/1461
+
+https://www.acmicpc.net/problem/13164
+
+https://www.acmicpc.net/problem/2156
+
+https://www.acmicpc.net/problem/2839
