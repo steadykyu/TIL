@@ -10,3 +10,13 @@ git fetch
 
 git status
 ```
+
+### 3. 내용추가 후 알맞은 계정으로 push 해주기 위해 계정을 확인해보자
+
+```
+git config --list
+
+git config --global user.name "steadykyu"
+git config --global user.email "awakekyu1@gmail.com"
+```
+계정이 없다면 github 설정과 일치하도록 이름과 email을 설정해주자.
