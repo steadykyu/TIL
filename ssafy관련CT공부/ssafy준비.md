@@ -20,6 +20,8 @@
 
 참고 영상 : https://www.youtube.com/watch?v=CgKUIHw2lHc&ab_channel=%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%A7%80%EB%A6%84%EA%B8%B8
 
+https://blog.naver.com/vopl1004/222128306635
+
 ## 2. 적성진단(5/21)
 
 2-1 수리 추리 유형
@@ -37,6 +39,8 @@ https://www.youtube.com/watch?v=UsTo-0hAb6k&ab_channel=algorithmjobs
 https://velog.io/@kimdukbae/1.-%EA%B7%B8%EB%A6%AC%EB%94%94
 
 https://m.blog.naver.com/PostList.naver?blogId=ndb796&categoryNo=128&logCode=0
+
+https://daebalpri.me/entry/SSAFY-5%EA%B8%B0-%ED%95%A9%EA%B2%A9-%ED%9B%84%EA%B8%B0?category=949698
 
 > 출처
 
