@@ -1,21 +1,23 @@
-import java.util.Arrays;
-
 class Solution {
-    public String solution(String s) {
+    public String solution(String s, int n) {
+        String answer = "";
 
-        return "";
+        char[] charr = s.toCharArray();
+        for(char ch : charr){
+            for(int i=1; i <= n; i++){
+                if(ch == 'z') ch = 'a';
+                else if(ch == 'Z') ch = 'A';
+                else if(ch == ' ') ch = ' ';
+                else ch++;
+            }
+            answer += String.valueOf(ch);
+        }
+        return answer;
     }
 
     public static void main(String[] args) {
 
         Solution sol = new Solution();
-
-        String str = "boo:and:foooo";
-        String[] strarr = str.split("o",-2);
-
-        for(String s : strarr){
-            System.out.println(s);
-        }
-        System.out.println("종료");
+        System.out.println(sol.solution("a B z",4));
     }
 }
