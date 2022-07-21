@@ -1,21 +1,23 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 
 class Solution {
-    public long solution(int price, int money, int count) {
-        long answer = -1;
-        long tolprice =0;
-        for(int i=1; i<=count;i++){
-            tolprice += price * i;
+    public int solution(int n) {
+        String a = "";
+
+        while(n > 0){
+            a = a + (n % 3);
+            n /= 3;
         }
-        answer = Math.abs(tolprice - money);
-        return answer;
+        return Integer.parseInt(a,3);
     }
 
     public static void main(String[] args) {
 
         Solution sol = new Solution();
-        System.out.println(sol.solution(3,20,4));
+        System.out.println(sol.solution(45));
+
 
     }
 }
