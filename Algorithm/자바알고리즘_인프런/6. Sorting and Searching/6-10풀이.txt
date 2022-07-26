@@ -1,0 +1,85 @@
+import java.util.*;
+/**
+ *
+ * -----------------------------아이디어
+ * > 결정 알고리즘
+ * - 이분 검색을 활용한 알고리즘 이다. (배열이 오름차순으로 정렬되어있어야한다.)
+ * - 적용하기 위해서는 lt, rt사이에 정답이 되는 최적의 해가 꼭 있을때만 사용이 가능하다.
+ *
+ * 
+ * 1. 두 말 사이의 거리의 가장 작은 값은 lt = 1, 가장 큰 값은 rt = 8이다.
+ * ( 가장 큰 쪽의 값인 9로 해도 이진 검색에 큰 연관이 없으므로 9를 넣었다.)
+ *
+ * 1-1 단 lt 는 첫째값을 쓰면 안된다.(오름차순 첫쨰값이 말 사이의 거리보다 크면 문제 발생
+ * ex) 5 7 10  -> 최대거리는 3인데 첫째값이 5라서 문제 발생
+ * 
+ * 2. 이진검색으로 mid = (lt +rt) /2 를 구한다.(5)
+ * 두 말 사이의 거리의 최대거리가 mid(5)인 경우, 몇 마리의 말을 배치할 수 있는지 유효성 검사(count)를 해준다
+ * 
+ * 2-1 유효성 검사
+ * 최대 거리를 위해서는 첫번쨰 말은 첫 마구간에 있어야한다.(=ep). ep 마구간에서 다음 마구간 사이의 거리를 구해준다.
+ * 이 거리를 mid(최대거리)와 비교하여 가능한 말 마리수를 count 하고 return 한다.
+ * 
+ * 
+ * 3. 유효성 검사(count 결과와 문제의 c를 비교)를 만족하지 않으면 rt 이동시켜 mid(최대거리)를 줄인다. ( 이후 1,2 번작업을 다시 진행)
+ *
+ * 3-1 유효성 검사를 만족하면 그때의 거리를 answer에 넣어준다.
+ * 단 더 큰 거리값이 가능할 수 있으니, lt를 이동시켜 mid(최대거리)를 늘린다.
+ * (mid=2일때도 유효성 검사는 통과한다. 그러나 최대거리를 봐야하므로 mid를 늘려본다.)
+ * 
+ * 결론적으로 두 말 사이의 거리가 가장 최대일때의 mid값이 answer에 들어간다.
+ * 
+ */
+
+//5 3
+//1 2 8 4 9
+//1 2 4 8 9
+class Main {
+    // 유효성 검증 (주어진 말 사이의 최대거리에서 가능한 말 마리수)
+    public int count(int[] arr, int dist){
+        int cnt=1;          // cnt : 말 마리수,
+        int ep = arr[0];    // 1번째 말은 가장 첫번쨰 말에 배치
+        for(int i=1; i<arr.length;i++){
+            // 주어진 길이 dist 보다 크면(더 멀리 있으므로) 두번쨰 말을 둘 수 있다.
+            if(arr[i]-ep >= dist) {
+                cnt++;
+                ep = arr[i];
+            }
+            // 그렇지 않으면 해당 마굿간에는 말 배치가 불가능하다.
+        }
+        return cnt;
+    }
+
+    public int solution(int n, int c, int[] arr) {
+        int answer=0;
+        Arrays.sort(arr);
+        // 말사이의 거리가 가장 짧을떄의 lt, 가장 길때의 rt
+        int lt = 1, rt = arr[n-1];
+        while(lt <= rt){
+            int mid = (lt+rt)/2;
+            // mid 는 lt, rt의 중간값이자, 말 사이의 거리의 최대값을 의미한다.
+            // 말의 마리수가 c 마리보다 같거나 더 많이 나온다. -> 최대거리(mid)를 늘여봐야함
+            if(count(arr,mid) >= c) {
+                answer = mid;
+                lt = mid + 1;
+            }
+            // 말의 마리수가 c마리보다 더 적게 나온다. -> 최대거리(mid)를 줄어야함
+            else rt = mid -1;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i=0 ; i<n; i++){
+           arr[i] = in.nextInt();
+        }
+        System.out.println(T.solution(n,m,arr));
+    }
+}
