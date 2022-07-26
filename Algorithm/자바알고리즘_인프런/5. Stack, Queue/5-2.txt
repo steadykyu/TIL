@@ -1,0 +1,39 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. Stack 을 활용하자.
+ * stack 이란?
+ * - LILO (Last In First Out) : 나중에 넣은게 먼저 나온다. (ex) 구덩이를 생각해보자)
+ *
+ * 2. '('를 만나면 Stack에 '('를 push(넣어준다.)
+ * 3. ')' 를 만나면 stack에서 pop시켜준다.(꺼내준다)
+ * 이떄 맨 위에 있는 '(' 가 출력된다.
+ *
+ * 4. 스택이 비어있을떄만, answer에 문자(A~Z)를 더해준다.
+ * -----------------------------구현
+ */
+//(A(BC)D)EF(G(H)(IJ)K)LM(N)
+class Main {
+    public String solution(String s) {
+       String answer = "";
+       Stack<Character> stack = new Stack<>();
+
+       for(char ch : s.toCharArray()){
+           if(ch == '(') stack.push(ch);
+           else if(ch == ')'){
+               stack.pop();
+           }else{
+               if(stack.isEmpty()) answer += ch;
+           }
+       }
+
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+        System.out.println(T.solution(str));
+    }
+}

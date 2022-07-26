@@ -1,0 +1,39 @@
+/**
+ * 1. 문제 똑바로 읽기
+ * 2. indexOF bound exception 을 막기 위해 공백글자 하나 추가해주기.
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public String solution(String str){
+        String answer = "";
+
+        // index out of bound 를 막기위해 빈문자를 추가해준다.
+        str = str + " ";
+
+        int cnt = 1;
+        // 빈문자 전까지만 i 가 가도록 범위설정
+       for(int i =0; i < str.length()-1; i++){
+           if(str.charAt(i) == str.charAt(i+1)) cnt++;
+           else {
+               answer += str.charAt(i);
+               if(cnt>1) answer += cnt;
+               cnt = 1;
+               }
+           }
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+        bw.write(T.solution(word));
+        bw.flush();
+        bw.close();
+    }
+}

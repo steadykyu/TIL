@@ -1,0 +1,41 @@
+import java.util.*;
+/**
+ *
+ * -----------------------------아이디어 1
+ *  이중 for문으로 전부 비교한다
+ * -----------------------------아이디어 2
+ *  HashMap으로 개수를 센다.
+ * -----------------------------아이디어 3
+ *  정렬로 풀기.(Nlog(N)의 시간 복잡도를 가진다.)
+ * 1. 정렬 시키기
+ * 2. 같은 값이 있으면 D 출력하기.
+ * -----------------------------구현
+ * 1. Arrays.sort(Object[] obj) : 배열을 오름차순 해준다.
+ */
+
+//8
+//20 25 52 30 39 33 43 33
+
+class Main {
+    public String solution(int n, int[] arr) {
+        String answer ="U";
+        Arrays.sort(arr);
+        for(int i=0; i<n-1; i++){
+            if(arr[i]==arr[i+1]) return "D";
+        }
+        return "U";
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        int[] arr = new int[n];
+
+        for(int i=0 ; i<n; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.println(T.solution(n,arr));
+
+    }
+}

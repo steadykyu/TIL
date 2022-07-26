@@ -1,0 +1,29 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * -----------------------------구현
+ */
+//10 3
+//13 15 34 23 45 65 33 11 26 42
+class Main {
+    public String solution(String s) {
+        char[] s_array = s.toCharArray();
+        String answer = "YES";
+        int cnt = 0;
+        for(int i = 0; i < s.length() ; i++){
+            if(s_array[i] == '(') cnt++;
+            else cnt--;
+            if(cnt < 0) return "NO";
+        }
+        if(cnt==0) answer = "YES";
+        else answer = "NO";
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+        System.out.println(T.solution(str));
+    }
+}

@@ -1,0 +1,33 @@
+/**
+ * 1. 조건에 따라 값을 누적하는 변수를 만들어 주는게 중요하다.
+ *
+ * 2. 좀더 편하게 하기 위해 그때그때의 1의 개수 point(cnt) 와 누적값 answer로 생각하면 더 쉽게 할 수 있다.
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int[] arr){
+
+        int answer = 0;
+        int point = 0;
+        //1 0 1 1 1 0 0 1 1 0
+        for(int i =0; i<n; i++){
+            if(arr[i] == 1){
+                point++;
+                answer += point;
+            }else point = 0;
+        }
+
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+        int[] arr=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=kb.nextInt();
+        }
+        System.out.println(T.solution(n,arr));
+    }
+}

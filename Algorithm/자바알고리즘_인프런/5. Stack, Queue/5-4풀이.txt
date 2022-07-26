@@ -1,0 +1,47 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 후위식 문제로 빼기를 할때 주의해서 봐주자.
+ * 좀 더 쉽게 보기 위해 lt(스택 아래의 숫자), rt(스택 위의 숫자) 를 도입하면 이해하기  편하다.
+ * -----------------------------구현
+ * 1. Character.isDigit(char ch) 로 char 값이 숫자인지 판별 가능하다.
+ * 2. Integer 에 char 형을 넣어버리면 ASCII 값이 들어간다.
+ * '0' = 48 이므로 x-48을 하던가, Character.getNumericValue(char ch)를 사용하자.
+ */
+//352+*9-
+class Main {
+    public int solution(String str) {
+        Stack<Integer> stack = new Stack<>();
+       int answer = 0;
+
+       for(char ch : str.toCharArray()){
+           if(Character.isDigit(ch)) stack.push(Character.getNumericValue(ch));
+           else{
+               int rt = stack.pop();
+               int lt = stack.pop();
+               if(ch=='+') stack.push(lt+rt);
+               else if(ch=='-') stack.push(lt-rt);
+               else if(ch =='*') stack.push(lt*rt);
+               else if(ch =='/') stack.push(lt/rt);
+               else return -1;
+           }
+
+
+//           for(int i=0; i<stack.size();i++){
+//               System.out.print(stack.get(i) + " / ");
+//           }
+//           System.out.println();
+       }
+
+       answer = stack.pop();
+       return answer;
+    }
+//(2 + 5) * 3 -9
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+
+        System.out.println(T.solution(str));
+    }
+}

@@ -1,0 +1,53 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. '(' 일때는 스택에 막대 추가
+ * 2. ')' 일떄는 스택에서 pop() 
+ * 2-1. 단 이전의 문자값이 '('이면 레이져 : pop() , 총막대수 += stack.size()
+ * 2-2. 아니라면 pop()만
+ * 
+ * 
+ * -----------------------------구현
+ * 1. Character.isDigit(char ch) 로 char 값이 숫자인지 판별 가능하다.
+ * 2. Integer 에 char 형을 넣어버리면 ASCII 값이 들어간다.
+ * '0' = 48 이므로 x-48을 하던가, Character.getNumericValue(char ch)를 사용하자.
+ */
+//()(((()())(())()))(())
+class Main {
+    public int solution(String str) {
+        Stack<Character> stack = new Stack<>();
+       int answer = 0;
+       int cnt = 0; //라인종류의 막대 개수
+       char tmp = '0';
+       for(char ch : str.toCharArray()){
+
+          if(ch=='(') {
+              stack.push(ch);
+              answer++;
+          }
+          else{
+              //레이저의 경우 - 이전께 '('이다.
+              if(tmp == '('){
+                  stack.pop();
+                  answer--;
+                  answer += stack.size();
+              }else{
+                  stack.pop();
+              }
+          }
+          tmp = ch;
+
+//           System.out.println(answer);
+       }
+
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+
+        System.out.println(T.solution(str));
+    }
+}

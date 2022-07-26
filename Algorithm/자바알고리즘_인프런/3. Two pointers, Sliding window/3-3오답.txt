@@ -1,0 +1,41 @@
+/**
+ *------------------------two pointer 알고리즘------------------------------
+ *
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int k, int[] arr){
+        int answer = 0;
+
+        int max = Integer.MIN_VALUE;
+        for(int i=0;i <= arr.length-3;i++){
+            int sum =0;
+            sum = arr[i] + arr[i+1] + arr[i+2];
+            if(sum > max){
+                max = sum;
+            }
+        }
+        answer = max;
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+
+        int k=kb.nextInt();
+
+        int[] arr=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=kb.nextInt();
+        }
+
+        /**
+10 3
+12 15 11 20 25 10 20 19 13 15
+         */
+        System.out.println(T.solution(n, k, arr));
+    }
+}

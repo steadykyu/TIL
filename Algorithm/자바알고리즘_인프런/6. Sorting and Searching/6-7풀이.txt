@@ -1,0 +1,63 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어 1
+ * Comparable interface 이용하기
+ * 1. 좌표를 의미하는 Point 클래스를 만들고, 정렬기준을 정해주기 위해 Comparable 을 implements한다.
+ * 2. Comparable interface의 추상 메서드 compareTo()를 오버라이딩하여 구현시켜준다.
+ * 3. compareTo(<T>) 에서 정렬 기준을 잡아준다.
+ * -----------------------------구현
+ * 1. compareTo() 사용 방법
+ * 구체적인 이유 : https://hongjw1938.tistory.com/7
+ *
+ *  !!! 이렇게 기억하자 !!!
+ * ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ>
+ * this          p           this - p           구조
+ * 10           20              <0    : 정렬 순서 유지 -> 오름차순
+ * 20           10              >0    : 두 값의 위치를 바꿈 -> 오름차순
+ *
+ * ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+ * this          p           p - this : 내림차순
+ *
+ *
+ * 2. Collections.sort(Collection )
+ *  - collection을 설정한 정렬 기준으로 정렬시켜준다.
+ */
+
+//2 7
+//1 3
+//1 2
+//2 5
+//3 6
+class Point implements Comparable<Point>{
+    int x;
+    int y;
+    Point(int x, int y){
+        this.x = x;
+        this.y =y;
+    }
+    // Point p 에 들어오는 Point가 비교하는 점이다.
+    @Override
+    public int compareTo(Point p){
+        if(this.x==p.x) return this.y-p.y;
+        else return this.x - p.x;
+    }
+}
+
+class Main {
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        ArrayList<Point> arr = new ArrayList<>();
+
+        for(int i=0 ; i<n; i++){
+           int x=in.nextInt();
+           int y=in.nextInt();
+
+           arr.add(new Point(x,y));
+        }
+        Collections.sort(arr);
+        for(Point p : arr) System.out.println(p.x + " "+ p.y);
+    }
+}

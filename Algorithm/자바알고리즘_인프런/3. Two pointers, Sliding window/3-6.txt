@@ -1,0 +1,47 @@
+/**
+ * ------------------------투 포인터를 이용하여 O(N)으로 문제 해결하기 -----------------------------
+ * 1. 0의 개수가 2개보다 커질때마다 lt, rt를 이동시켜보자.
+ * 2. sum은 1의 개수이다.
+ * 3. 0의 개수는 (rt+1-lt) - sum
+ *
+ * k가 2일때, 루프를 어떻게하는지 노트에 적어보면서 풀어보자.
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int k, int[] arr) {
+        int answer =0, cnt =0, sum =0,lt=0;
+        int max = Integer.MIN_VALUE;
+
+        for(int rt=0; rt<n;rt++){
+            sum += arr[rt];
+
+            // 0의 개수가 2보다 클때
+            while(((rt+1-lt)-sum) > k){
+                sum -= arr[lt++];
+            }
+            max = Math.max(max,sum);
+        }
+        // k개 만큼 0을 1로 바꾸자.
+        answer = max + k;
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+        int k=kb.nextInt();
+
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++){
+            arr[i] = kb.nextInt();
+        }
+
+        /**
+14 2
+1 1 0 0 1 1 0 1 1 0 1 1 0 1
+         */
+        System.out.println(T.solution(n,k,arr));
+    }
+}

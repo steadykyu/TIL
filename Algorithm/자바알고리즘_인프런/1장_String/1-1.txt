@@ -1,0 +1,40 @@
+import java.io.*;
+
+class Main {
+    public int solution(String word, char s){
+        int answer = 0;
+        word = word.toUpperCase();
+        s = Character.toUpperCase(s);
+//        System.out.println(word + " " + s);
+
+        for (int i = 0; i < word.length(); i++) {
+            if(word.charAt(i) == s){answer++;}
+            // String을 index로 접근할때는 [] 가 아니라 charAt()을 쓴다.
+        }
+
+        /**
+         * foreach 풀이법
+         */
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        /* solution이 인스턴스메서드 이므로 객체 생성 */
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+        char s1 = br.readLine().charAt(0);
+
+        int answer = T.solution(word, s1);
+
+        bw.write(Integer.toString(answer));
+        bw.flush();
+        bw.close();
+    }
+}
+// BufferedReader에 관해서는 https://www.acmicpc.net/submit/1000/40409930 메모참고하기.
+

@@ -1,0 +1,36 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * -----------------------------구현
+
+ *
+ */
+//CBA
+//CBDAGE
+//ACBDGE
+class Main {
+    public String solution(String require , String hyun) {
+        Queue<Character> Q = new LinkedList<>();
+
+       for(char ch : hyun.toCharArray()){
+           Q.offer(ch);
+       }
+      String answer = "YES";
+       for(char ch2 : require.toCharArray()){
+           if(!Q.contains(ch2)) return "NO";
+           else{
+               while(ch2 != Q.poll()){}
+           }
+       }
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+        String str2 = in.next();
+
+        System.out.println(T.solution(str,str2));
+    }
+}

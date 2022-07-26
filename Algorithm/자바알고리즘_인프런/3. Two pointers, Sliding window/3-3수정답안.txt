@@ -1,0 +1,47 @@
+/**
+ *------------------------sliding window------------------------------
+ * 오답 방식으로 풀면 이중 for문이 돌기때문에, O(N^2) 의 시간복잡도를 가진다.
+ * sliding window를 활용하면 O(N)의 시간복잡도로 해결할 수 있다.(10의 시간복잡도)
+ * 길이가 3 짜리인 창문(k=3)을 만든다고 생각하자. 이 창문을 한칸씩 밀어서 합의 값을 비교한다고 생각하자.
+ * 창문의 값(sum) + arr[i] - arr[i-k]
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int k, int[] arr){
+        int answer = 0;
+
+        int max = Integer.MIN_VALUE;
+        int sum =0;
+
+        // 0~k까지의 합 첫번쨰 창문을 구해준다.
+        for(int i=0; i<k; i++) sum+=arr[i];
+        answer = sum;
+
+        for(int i=k;i<n;i++){
+            sum += arr[i] - arr[i-k];
+            answer = Math.max(answer,sum);
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+
+        int k=kb.nextInt();
+
+        int[] arr=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=kb.nextInt();
+        }
+
+        /**
+10 3
+12 15 11 20 25 10 20 19 13 15
+         */
+        System.out.println(T.solution(n, k, arr));
+    }
+}

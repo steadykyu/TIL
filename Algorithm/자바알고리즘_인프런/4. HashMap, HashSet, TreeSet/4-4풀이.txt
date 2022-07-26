@@ -1,0 +1,50 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. 기준문자 t에 대한 해시를 만든다.
+ * 2. 주어진 t-1 길이 만큼의 s문자열에 대한 HashMap을 만든다.
+ * 3. 매 경우마다 rt번째 문자를 추가하여 기준문자 해시와 동등한지 비교해준다. 
+ * 4. 비교후마다 lt번째 문자의 개수를 -1 감소시킨 후, lt++ 를 진행한다. 
+ * -----------------------------구현
+ *  HashMap.equals(HashMap) : 두 HashMap이 동등한지 비교해준다.
+ *
+ */
+//bacaAacba
+//abc
+class Main {
+    public int solution(String s, String t) {
+       HashMap<Character,Integer> s_HM = new HashMap<>();
+       HashMap<Character,Integer> t_HM = new HashMap<>();
+
+       int lt =0, answer =0;
+       int t_len = t.length();
+
+       // 기준문자(t) hash 생성 ( ex) b a c - 1 1 1)
+        for(char ch : t.toCharArray()){t_HM.put(ch, t_HM.getOrDefault(ch,0)+1);}
+
+       // window -1 크기만큼 미리 생성
+       for(int i = 0; i < t_len-1; i++){s_HM.put(s.charAt(i),s_HM.getOrDefault(s.charAt(i),0)+1);}
+       //window의 생성 - 비교 - 이동
+       for(int rt = t_len-1; rt < s.length(); rt++){
+           s_HM.put(s.charAt(rt),s_HM.getOrDefault(s.charAt(rt),0)+1);
+
+           if(s_HM.equals(t_HM)) ++answer;
+           
+            // lt 작업
+           s_HM.put(s.charAt(lt),s_HM.get(s.charAt(lt))-1);
+           if(s_HM.get(s.charAt(lt)) == 0) s_HM.remove(s.charAt(lt));
+           lt++;
+       }
+
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str1 = in.next();
+        String str2 = in.next();
+
+        System.out.println(T.solution(str1,str2));
+    }
+}

@@ -1,0 +1,33 @@
+/**
+ * 개별로 비교가 아니라 한 문장을 그대로 읽어와서 회문인지 판단하는 문제이다. 오해 X
+ * 1. 정규표현식 사용을 위해 String의 replaceAll() 사용
+ * 2. 글자를 뒤집기 위해 StringBuilder의 reverse() 사용
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public String solution(String str){
+        String answer = "NO";
+        
+        // 특수문자 제거하기
+        str = str.toUpperCase().replaceAll("[^A-Z]", "");
+
+        String tmp = new StringBuilder(str).reverse().toString();
+        if(str.equals(tmp)) answer = "YES";
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        bw.write(T.solution(word));
+        bw.flush();
+        bw.close();
+    }
+}

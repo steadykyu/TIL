@@ -1,0 +1,44 @@
+/**
+ * 나는 ASCII로 풀었는데, isLowerCase(char ch) 메서드를 활용하면 더 편하게 해결 할 수 있다.
+ * 답안지 확인해보기.
+ */
+
+import java.io.*;
+
+class Main {
+    public String solution(String word){
+
+//        int num = 'Z';
+//        System.out.println(num);
+//        // ASCII 값 확인
+//        // a = 97 , z = 122 / A = 65 , Z = 90
+
+        String answer = "";
+
+        for(char ch : word.toCharArray()) {
+            if (ch >= 97) {
+                ch = Character.toUpperCase(ch);
+            } else {
+                ch = Character.toLowerCase(ch);
+            }
+
+            answer += ch;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        String answer = T.solution(word);
+
+        bw.write(answer);
+        bw.flush();
+        bw.close();
+    }
+}
+

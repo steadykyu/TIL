@@ -1,0 +1,53 @@
+/**
+ * 1. 행렬에서 여러 방향으로 이동시켜주는 (dx, dy) 만들기.
+ * 2. 이를 활용하여 이동완료한 행,열 index를 나타내는 nx, ny
+ * 3. 이동한 행, 열이 원래의 행렬이 크거나 같다면, 봉우리가 아닌것이다.
+ * 4. 기존행렬은 0~N-1을 행,열로 가지는 행렬이다. 경계선에서 이동한 부분들은 (이동한 index가 -1 이거나 n이 되는 부분)은 문제에 따라 항상 만족하므로
+ * 봉우리를 판별하는 조건식에서 제외한다.
+ * 5. 경계선 조건을 봉우리 조건보다 먼저 추가해주어야 index의 outofbound를 피할수 있다.
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int[][] arr){
+        // 이동좌표
+        int[] dx = {-1,0,1,0};
+        int[] dy = {0,1,0,-1};
+
+        int answer = 0;
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                boolean isFlag = true;
+                // 한 행렬위의 점에서 4방향으로 회전
+                for(int k=0; k<4 ;k++){
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+
+                    // 경계선의 조건을 만족 후,
+                    // 이동완료한 점과 봉우리를 비교하여 봉우리인지 판별
+                    if(nx>=0 && nx<n && ny>=0 && ny<n && arr[nx][ny] >= arr[i][j]){
+                        isFlag =false;
+                        break;
+                    }
+                }
+                if(isFlag) answer++;
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+        int[][] arr=new int[n][n];
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++)
+            arr[i][j]=kb.nextInt();
+        }
+
+        System.out.println(T.solution(n,arr));
+    }
+}

@@ -1,0 +1,42 @@
+import java.util.*;
+/**
+ * 결과는 나오늗네 , time limit exceed 가 나왔다 . 
+*/
+
+import java.util.*;
+class Main {
+    public int[] solution(int num1, int num2, int[] arr) {
+        int[] answer = new int[num1-num2+1];
+
+        for(int i =0; i< answer.length; i++){
+            // num2 개수에 맞는 배열 구하기
+            int[] tmparr = Arrays.copyOfRange(arr,i,i+num2); // 0 ~3
+
+            // Set 만들고 개수 구하기
+            Set set = new HashSet();
+            for(int x : tmparr){
+                set.add(x);
+            }
+            answer[i] = set.size();
+        }
+
+        return answer;
+    }
+
+//    7 4
+//            20 12 20 10 23 17 10
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int input1 = in.nextInt();
+        int input2 = in.nextInt();
+
+        int[] arr = new int[input1];
+        for(int x=0; x < arr.length; x++){
+            arr[x] = in.nextInt();
+        }
+        for(int x : T.solution(input1,input2,arr)){
+            System.out.printf(x+" ");
+        };
+    }
+}
