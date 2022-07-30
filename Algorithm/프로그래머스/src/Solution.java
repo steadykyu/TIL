@@ -2,23 +2,34 @@
 import java.util.HashMap;
 
 class Solution {
-    public int solution(String s) {
-        int answer = 0;
-        int len = s.length();
-        String[] digits = {"0","1","2","3","4","5","6","7","8","9"};
-        String[] alphabets = {"zero","one","two","three","four","five","six","seven","eight","nine"};
+        public String solution(String new_id) {
+            String answer = "";
+            String temp = new_id.toLowerCase(); // 1 단계
 
-        for(int i=0; i<10; i++){
-            s = s.replaceAll(alphabets[i],digits[i]);
+            temp = temp.replaceAll("[^-_.a-z0-9]","");      // 2단계
+            System.out.println(temp);
+            temp = temp.replaceAll("[.]{2,}",".");  // 3단계
+            temp = temp.replaceAll("^[.]|[.]$",""); // 4단계
+            System.out.println(temp.length());
+            // 5단계
+            if(temp.equals(""))
+                temp+="a";
+            if(temp.length() >=16){
+                temp = temp.substring(0,15);
+                temp=temp.replaceAll("^[.]|[.]$","");
+            }
+            if(temp.length()<=2)
+                while(temp.length()<3)
+                    temp+=temp.charAt(temp.length()-1);
+
+            answer=temp;
+            return answer;
         }
-
-        return Integer.parseInt(s);
-    }
 
     public static void main(String[] args) {
 
         Solution sol = new Solution();
-        String str = "one4seveneight";
+        String str = "=.=";
         System.out.println(sol.solution(str));
     }
 }
