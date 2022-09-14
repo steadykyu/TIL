@@ -10,3 +10,4 @@ ORDER BY INS.DATETIME ASC
 # 알게 된 점 
 
 1. 날짜를 부등호로 처리가 가능하다.
+
