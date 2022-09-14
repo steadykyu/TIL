@@ -1,0 +1,24 @@
+```SQL
+-- 코드를 입력하세요
+SELECT NAME, COUNT(NAME)
+FROM ANIMAL_INS 
+WHERE NAME IS NOT NULL
+GROUP BY NAME
+HAVING COUNT(NAME) >= 2
+ORDER BY NAME
+```
+
++ 쿼리문의 실행 순서
+```
+SELECT - 5순위 (필수)
+
+FROM - 1순위 (필수)
+
+WHERE - 2순위
+
+GROUP BY - 3순위
+
+HAVING - 4순위
+
+ORDER BY - 6순위
+```
