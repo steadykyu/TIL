@@ -4,34 +4,23 @@ import java.util.*;
 import java.util.HashMap;
 
 class Solution {
-    public String solution(String[] survey, int[] choices) {
-        // 성향 : 점수 로 이루어진 HashMap에서 최종적인 점수를 계산
-        HashMap<String, Integer> pScore_hm = new HashMap<>();
-        for(String ch : "RTCFJMAN".split("")){
-            pScore_hm.put(ch,0);
+    public int solution(int n) {
+        int answer = 0;
+        int[] remain_arr = new int[n+1];
+        remain_arr[1] = 1; remain_arr[2] = 1; // 1번쨰, 2번쨰값은 1
+        int divNum = 1234567;
+        //1 1 2 3 58 13
+        for(int i = 3; i <= n ; i++){
+            remain_arr[i] = (remain_arr[i-2] % divNum + remain_arr[i-1] % divNum) % divNum;
         }
-
-        // 조사결과값이 4를 기준으로 작으면 왼쪽글자에 점수더하기, 크면 오른쪽에 더하기.(같으면 아무것도 x)
-        // 각 성향글자와 점수는 index가 같은 특징이용
-        for(int i = 0; i < choices.length; i++){
-            String[] survey_sub = survey[i].split("");
-            // left : survey_sub[0] , right : survey_sub[1]
-            if(choices[i] > 4) pScore_hm.put(survey_sub[1], pScore_hm.get(survey_sub[1]) + choices[i] % 4);
-            else pScore_hm.put(survey_sub[0], pScore_hm.get(survey_sub[0]) + 4-choices[i]);
-        }
-        // 개별 값 비교 후 최종 성향 도출
-        String answer = "";
-        for(String twoCh : "RT CF JM AN".split(" ")){
-            // 0 : left , 1 : right
-            if(pScore_hm.get(twoCh.split("")[0]) < pScore_hm.get(twoCh.split("")[1])) answer+=twoCh.split("")[1];
-            else answer+=twoCh.split("")[0];
-        }
+        answer = remain_arr[n];
         return answer;
     }
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        String[] exArr = {"AN", "CF", "MJ", "RT", "NA"}; int[] choices = {5, 3, 2, 7, 5};
-        System.out.println(sol.solution(exArr, choices));
+        System.out.println(sol.solution(100000));
+
     }
+
 }
