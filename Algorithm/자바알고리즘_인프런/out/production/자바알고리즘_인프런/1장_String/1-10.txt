@@ -1,0 +1,51 @@
+/**
+ * for문과 초기화의 특성을 활용하여 문제풀이가 가능하다.
+ * 문제 틀렸음
+
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public int[] solution(String str){
+        // str = teachermode e
+        String[] chArray = str.split(" ");
+        String word = chArray[0];
+        String alpha = chArray[1];
+
+        int len = chArray[0].length();
+        int[] answer = new int[len];
+
+        int p = 1000;
+        // 왼쪽에서 for 문이 진행될때 e와의 거리
+        for(int i = 0; i < len ; i++){
+            if(word.substring(i,i+1).equals(alpha)) p = 0;
+            else p=p+1;
+            answer[i] = p;
+        }
+
+        // 오른쪽에서 for 문이 진행될때 e와의 거리
+        for(int i = len -1; i >= 0; i--){
+            if(word.substring(i,i+1).equals(alpha)) p = 0;
+            else p=p+1;
+
+            if (answer[i] > p){answer[i] = p;};
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        for(int i : T.solution(word)){
+            bw.write(i + " ");
+        }
+        bw.flush();
+        bw.close();
+    }
+}

@@ -1,0 +1,41 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * FIFO 의 특징을 가지는, Queue를 활용하자.
+ * 1. K번째까지 poll(x) 해주며 poll(x)값은 바로 offer(x) 해준다.
+ * 2. K번째 일떄는 poll(x) 만 해주어 Queue에서 제거해준다.
+ * 3. Queue.size() 가 1일때 까지 작업한다.
+ * -----------------------------구현
+ * 1.Queue<Integer> Q = new LinkedList<>(); : Queue 선언하기
+ * 2.Queue.offer(x) : Queue에 x자료를 넣어준다.
+ * 3.Queue.poll(x) : Queue에서 자료를 꺼내준다.
+ * 4.Queue.peek(x) : Queue의 가장 먼저 출력되는 자료를 리턴한다.(poll() 과 다르게 제거 되지 않는다.)
+ * 5.Queue.size() : Queue의 길이
+ * 6.Queue.contains(x) : Queue에 x가 있는지 확인하고, boolean 값을 return 한다.
+ * 7.Queue.isEmpty() : boolean 을 return 한다.
+ * 
+ */
+//8 3
+class Main {
+    public int solution(int n , int k) {
+        Queue<Integer> Q = new LinkedList<>();
+        int answer = 0;
+        for(int i=1; i <=n ;i++) Q.offer(i);
+        while(!Q.isEmpty()){
+            for(int i=1; i<k; i++) Q.offer(Q.poll());
+            
+            Q.poll(); // k 번째 숫자를 제외
+            if(Q.size()==1) answer = Q.poll();
+        }
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+
+        System.out.println(T.solution(n,k));
+    }
+}

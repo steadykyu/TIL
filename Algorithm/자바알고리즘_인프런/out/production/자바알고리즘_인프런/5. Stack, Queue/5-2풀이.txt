@@ -1,0 +1,44 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. Stack 을 활용하자.
+ * 2. '('를 만나면 Stack에 '('를 push(넣어준다.)
+ * 3. 일반 문자들 또한 Stack에 push 해준다.
+ * 4. ')' 를 만나면 stack에서 빼주는 값이 '('일 떄까지 계속 pop시켜준다.
+ *
+ * 5. 스택이 비어있을떄만, answer에 문자(A~Z)를 더해준다.
+ * -----------------------------구현
+ * + Stack.size() : 현재 스택의 길이를 출력한다.
+ * + Stack.get(i) : i번째 Stack의 원소를 출력한다.
+ * +  while(stack.pop() != '(') : 아래 따로 내용을 작성하지 않아도 pop()메서드가 돌아가며 최상단 문자가 출력된다.
+ */
+//(A(BC)D)EF(G(H)(IJ)K)LM(N)
+class Main {
+    public String solution(String s) {
+       String answer = "";
+       Stack<Character> stack = new Stack<>();
+
+       for(char ch : s.toCharArray()){
+           if(ch == ')'){
+               while(stack.pop() != '('){
+//                   stack.pop();     -> 쓰면 안된다. 어차피 while안의 pop()에서 제거되며 출력되기 떄문이다.
+               };
+           }else{
+               stack.push(ch);
+           }
+       }
+       // Stack -> String
+        for(int i=0; i< stack.size(); i++){
+            answer += stack.get(i);
+        }
+
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+        System.out.println(T.solution(str));
+    }
+}

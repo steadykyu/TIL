@@ -1,0 +1,54 @@
+/**
+ * ---------------------------------------------4중 for문 문제
+ * 1. 열을 1등,2등,3등 4등으로 생각하자.
+ * 2. 학생수가 4명일때, 가능한 등수 순서쌍의 경우의 수는 (본인포함) 4^2 일 것이다. (이는 이중 for문으로 나타낼수 있다.)
+ * ex) (1,1) (1,2) ...... (4,4)
+ * 3. 모든 경우에 대해서, 문제의 멘토멘티 조건을 만족하는지 확인시켜보자. K= 0~2 시험번호, S = 0~3등수를 의미한다.
+ * 4. 각각의 시험(k, s를 이용한 for문)에서 i,j의 등수를 얻을 수 있다. 이를 pi, pj라고 하자.
+ * (ex (i, j) -> (3,1)일때라고 가정하면, 첫번째 시험에서 pi=0, pj=2 가 될 것이다.)
+ * 5. 모든 시험에서 pi < pj일때 멘토 멘티가 될 수 있는 관계이다. 이 경우에만 answer의 값을 증가시킨다.
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n,int m, int[][] arr) {
+        int answer = 0;
+
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=n;j++){
+                int cnt = 0;
+                // 시험횟수
+                for(int k=0;k<m;k++){
+                    int pi = 0;
+                    int pj = 0;
+                    // 등수 - 순서쌍안의 값이 나올때 해당 등수를 넣어준다.
+                    for(int s=0;s<n;s++){
+                        if(arr[k][s] == i) pi = s;
+                        if(arr[k][s] == j) pj = s;
+                    }
+                    if(pi < pj) cnt++;
+                }
+                // cnt=m일때 모든 시험에서 pi < pj 이다.
+                if(cnt == m) answer++;
+            }
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        //학생수 n, 시험횟수 m
+        int n= kb.nextInt(); int m=kb.nextInt();
+        int[][] arr=new int[m][n];
+
+        for(int i = 0; i<m;i++){
+            for(int j=0;j<n;j++){
+                arr[i][j] = kb.nextInt();
+            }
+        }
+
+        System.out.println(T.solution(n,m,arr));
+    }
+}

@@ -4,32 +4,26 @@ import java.util.*;
 import java.util.HashMap;
 
 class Solution {
-    public boolean isDiv(int n, int y){
-        boolean isDiv = true;
-        if(y % n != 0) isDiv = false;
-        return isDiv;
-    }
+    public int solution(int[] people, int limit) {
+        int answer = 0;
 
-    public int[] solution(int y, int b) {
-        int[] answer = new int[2];
-        int tmp_b = 0;
-        for(int i=1; i * i <= y ; i ++){
-            if(isDiv(i,y)){
-                if(b == (i+2) * (y/i +2) - y) {
-                    answer[0] = y/i+2; answer[1] = i+2;
-                };
-            }
+        Arrays.sort(people);
+        // index를 의미
+        int l = 0, r = people.length-1;
+
+        while(l < r){
+            if(people[l] + people[r] > limit) {r--; answer++;} // 혼자 배를 탄 경우
+            else {l++;r--;answer++;} //함께 배를 탄 경우
+
+            if(l == r) answer++;
         }
         return answer;
     }
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int y = 4; int b = 12;
-        for(int x : sol.solution(y, b)){
-            System.out.println(x);
-        }
-
+        int[] arr = {70, 50, 80, 50};
+        System.out.println(sol.solution(arr, 100));
     }
 
 }

@@ -1,0 +1,75 @@
+import java.util.*;
+/**
+ *
+ * -----------------------------아이디어
+ * > 결정 알고리즘
+ * - 이분 검색을 활용한 알고리즘 이다. (배열이 오름차순으로 정렬되어있어야한다.)
+ * - 적용하기 위해서는 lt, rt사이에 정답이 되는 최적의 해가 꼭 있을때만 사용이 가능하다.
+ *
+ * > 예시 배열에 적용
+ * 1. 노래를 담을수 있는 DVD의 최소용량 ~ 최대 용량은 (9~45) 가된다.
+ * 2. 최소값 9 = lt , 최대값 45 = rt 라고하자.
+ * 3. 이분검색으로 검증 진행 ( mid = 52/2 =27)
+ * 4. 이때 연속된 숫자들의 합 모음으로 DVD 용량이 27일때 3개의 DVD를 만들수 있는지 검증해보자(가능)
+ * 3개보다 작게 만들수 있으면, 3개로 쪼갤 수 있다. 이를 활용하여 검증하자.
+ *
+ * 5 최소의 길이를 구해야 하므로, rt = mid -1 으로 줄이고 다시 3,4 작업 진행
+ * -> lt     =9 -> 9 -> 9 ->  13 -> 15...
+ * -> rt     =45 -> 26 -> 16 -> 16
+ * -> mid    =27 -> 17 -> 12 -> 14
+ *
+ * answer = 27 -> 17 (12 14는 answer불가능)
+ * 6. lt > rt된 경우에 알고리즘을 종료시킨다.
+ *
+ * --------------------------------------------구현
+ * 1. Arrays.stream(arr) : 스트림을 생성해준다. ( 큰 여러 데이터에서 의미있는 값을 꺼내는 reduction에 도움을 주는 자료구조이다.)
+ * 1-1 stream.max() : max값을 OptionalInt으로 return
+ * 1-2 stream.sum() : sum값을 int로 return
+ * 2. OptionalInt.getAsInt(); : Stream의 OptionalInt 자료형을 Int로 return 해준다.
+ */
+
+//9 3
+//1 2 3 4 5 6 7 8 9
+class Main {
+    // 주어진 DVD 용량에서 m개수 만큼 만들수 있는지
+    public int count(int[] arr, int capacity){
+        int cnt=1, sum=0;           // cnt : DVD 개수(기본 1개는 가능), sum : DVD에 담아내는 곡들의 합
+        for(int x : arr){           // x : 새로운 분단위 노래
+            if(sum + x > capacity){
+                cnt++;
+                sum = x;
+            }
+            else sum += x;
+        }
+        return cnt;
+    }
+
+    public int solution(int n, int m, int[] arr) {
+        int answer=0;
+        int lt = Arrays.stream(arr).max().getAsInt();
+        int rt = Arrays.stream(arr).sum();
+        while(lt <= rt){
+            int mid = (lt + rt)/2;
+            if(count(arr,mid) <= m){
+                answer = mid;
+                rt = mid-1;
+            }
+            else lt = mid + 1;
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+
+        int[] arr = new int[n];
+
+        for(int i=0 ; i<n; i++){
+           arr[i] = in.nextInt();
+        }
+        System.out.println(T.solution(n,m,arr));
+    }
+}

@@ -1,0 +1,28 @@
+/**
+ * BufferedWriter 클래스는 자연수값을 ascii 코드로 출력하려고 하기때문에 String으로 변환하여 출력하여야 한다.
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public int solution(String str){
+        int answer = 0;
+
+        str = str.replaceAll("[^0-9]", "");
+        answer = Integer.parseInt(str);
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        bw.write(String.valueOf(T.solution(word)));
+        bw.flush();
+        bw.close();
+    }
+}

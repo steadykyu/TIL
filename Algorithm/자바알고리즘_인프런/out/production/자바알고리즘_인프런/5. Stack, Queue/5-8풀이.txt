@@ -1,0 +1,74 @@
+import java.util.*;
+/**
+ *  기본적으로는 순서대로 받는다.
+ *  * 내 차례일떄 더 위급한 환자가 존재하면 맨 뒤으로 보낸다.( -> Queue)
+ *  * M은 0번쨰부터~M 번째 , 환자는 N
+ *
+ * -----------------------------아이디어
+ * 1.  id(몇번쨰 환자인가), 위험도 를 가지고 있도록 Person 이라는 클래스를 만든다.
+ * 2. Person으로 이루어진 Queue를 만든다.
+ * 3-1 맨앞의 값이 환자목록에서 가장 큰 위험도를 가지면, 그대로 출력하고 answer를 1 증가시킨다.
+ * 3-2 그렇지 않다면, Queue에 다시넣어준다.(마지막으로 들어간다)
+ * -----------------------------구현
+ * 1. 이렇게 비교를 해야할 경우 tmp 값을 만들어서 비교하면, 훨씬 깔끔한 코드 작성이 가능하다.
+ * 2. 논리적으로 m번쨰와 answer(몇번째로 나오는지) 잘 맞춰주는 게 좋다.
+ * 3. Queue에 사용자가 정의한 참조형 변수도 사용할 수 있음을 의식하자.
+ */
+//5 2
+//60 50 70 80 90
+//0  1  2  3  4   -> m번쨰 환자
+// 70의 경우 -> 3
+
+class Person{
+    int id;
+    int priority;
+    public Person(int id, int priority){
+        this.id = id;
+        this.priority = priority;
+    }
+}
+class Main {
+
+    public int solution(int n, int m, int[] arr) {
+        Queue<Person> Q = new LinkedList<>();
+        int answer = 0;
+        // 환자(Person)목록 -> Queue
+        for(int i=0; i < n; i++){
+            Q.offer(new Person(i,arr[i]));
+        }
+
+        // Queue내의 모든 값과 비교
+        while(!Q.isEmpty()){
+            Person tmp = Q.poll();
+            for(Person p : Q){
+                // 목록에 더 큰경우가 있는 경우
+                if(p.priority > tmp.priority){
+                    Q.offer(tmp);
+                    tmp = null;
+                    break;
+                }
+            }
+            // 목록에 더 큰경우가 없으면 tmp !=일 것이다.
+            // 그렇다면 진료를 받으니 answer++;
+            if(tmp != null){
+                answer++;
+                // 주어진 조건 m일때 몇번째 인지 출력
+                if(tmp.id == m) return answer;
+            }
+        }
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int n = in.nextInt();
+        int m  = in.nextInt();
+        int[] arr = new int[n];
+
+        for(int i=0 ; i<n; i++){
+            arr[i] = in.nextInt();
+        }
+        System.out.println(T.solution(n,m,arr));
+    }
+}

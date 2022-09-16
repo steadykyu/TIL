@@ -1,0 +1,37 @@
+/**
+ *
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public String solution(String str){
+        String answer = "YES";
+
+        int lt = 0, rt = str.length() -1;
+
+        while(lt < rt){
+
+            if(Character.toLowerCase(str.charAt(lt)) != Character.toLowerCase(str.charAt(rt))) {
+                answer = "NO";
+                break;
+            }
+            lt++;
+            rt--;
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        bw.write(T.solution(word));
+        bw.flush();
+        bw.close();
+    }
+}

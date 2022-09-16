@@ -1,0 +1,58 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. 주어진 t 길이 만큼의 HashMap을 만들고, 투포인터(lt,rt)를 이용하여 window를 이동시킨다.
+ * 2. t의 문자를 하나씩 넣으면서, 개수를 -1씩 감소시킨다. 만약 0이 되거나 비교할수 있는 문자가 없다면 아나그램이 아니다.
+ * 3. 위의 경우를 제외하면 아나그램이므로 카운트 해준다.
+ * -----------------------------구현\
+ *  HashMap.equals(HashMap) : 두 HashMap이 동등한지 비교해준다.
+
+ */
+//bacaAacba
+//abc
+class Main {
+    public int solution(String s, String t) {
+       HashMap<Character,Integer> s_HM = new HashMap<>();
+       HashMap<Character,Integer> t_HM = new HashMap<>();
+
+       int lt =0, answer =0;
+       int t_len = t.length();
+
+       // 기준문자(t) hash 생성 ( ex) b a c - 1 1 1)
+        for(char ch : t.toCharArray()){t_HM.put(ch, t_HM.getOrDefault(ch,0)+1);}
+
+       // window -1 크기만큼 미리 생성
+       for(int i = 0; i < t_len-1; i++){s_HM.put(s.charAt(i),s_HM.getOrDefault(s.charAt(i),0)+1);}
+       //window의 생성 - 비교 - 이동
+       for(int rt = t_len-1; rt < s.length(); rt++){
+           s_HM.put(s.charAt(rt),s_HM.getOrDefault(s.charAt(rt),0)+1);
+
+           // 기준문자 t와의 애너그램인지 비교
+           boolean isAna = true;
+           for(char x : t.toCharArray()){
+               if(!s_HM.containsKey(x) || s_HM.get(x) != t_HM.get(x)) {
+                   isAna = false;
+                   break;
+               }
+           }
+
+           if(isAna) answer++;
+
+            // lt 작업
+           s_HM.put(s.charAt(lt),s_HM.get(s.charAt(lt))-1);
+           if(s_HM.get(s.charAt(lt)) == 0) s_HM.remove(s.charAt(lt));
+           lt++;
+       }
+
+       return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str1 = in.next();
+        String str2 = in.next();
+
+        System.out.println(T.solution(str1,str2));
+    }
+}

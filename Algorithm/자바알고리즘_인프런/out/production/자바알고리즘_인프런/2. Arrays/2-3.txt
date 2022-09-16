@@ -1,0 +1,34 @@
+import java.util.*;
+class Main {
+    public void solution(int n, int[] arrA, int[] arrB){
+
+        for(int i = 0; i<n; i++) {
+            //비길떄
+            if(arrA[i]==arrB[i]) System.out.println("D");
+            //A가 이기는 경우
+            else if(arrA[i] == 1 && arrB[i] == 3) System.out.println("A");
+            else if (arrA[i] == 2 && arrB[i] == 1) System.out.println("A");
+            else if (arrA[i] == 3 && arrB[i] == 2) System.out.println("A");
+            else System.out.println("B");
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n = kb.nextInt();
+        int[] A_arr = new int[n];
+        int[] B_arr = new int[n];
+
+        for(int i =0; i<n; i++){
+            A_arr[i] = kb.nextInt();
+        }
+
+        for(int i =0; i<n; i++){
+            B_arr[i] = kb.nextInt();
+        }
+
+       T.solution(n,A_arr,B_arr);
+    }
+}

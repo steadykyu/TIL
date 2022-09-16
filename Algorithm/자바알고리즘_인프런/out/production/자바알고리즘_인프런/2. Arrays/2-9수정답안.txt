@@ -1,0 +1,63 @@
+/**
+ *  1.foreach 문에서 2차원 배열은 처음에 한 행에 해당하는 배열을 가져온다.
+ *  한번 더 하면 한행 배열에서 각 열의 값들을 알수 있다.
+ *
+ *  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ *  2. 나는 행의 합, 열의합, 대각선 각각 의 합을 따로 생각했다.
+ *   그런데 답안을 보면 한번에 for문 안에서 처리 할수 있었다. 기억하자!!
+ *
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int[][] arr){
+        int answer = -100000;
+
+        int sum1 = 0;
+        int sum2 = 0;
+        // 행, 열의 합 중 최대값 넣기
+        for(int i =0; i < n ; i++){
+            for(int j=0; j<n; j++){
+                sum1 += arr[i][j];
+                sum2 += arr[j][i];
+            }
+            answer = Math.max(answer,sum1);
+            answer = Math.max(answer,sum2);
+            sum1 =0; sum2=0;
+        }
+
+        //대각의 합중 최대값 넣기
+        int sum3 = 0;
+        int sum4 = 0;
+        for(int i =0; i<n; i++){
+            sum3 += arr[i][i];
+            sum4 += arr[i][n-1-i];
+        }
+        answer = Math.max(answer,sum3);
+        answer = Math.max(answer,sum4);
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+        int[][] arr=new int[n][n];
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++)
+            arr[i][j]=kb.nextInt();
+        }
+
+        System.out.println(T.solution(n,arr));
+
+//        // 2차원 배열 출력
+//        for (int[] x : arr){
+//            for(int y : x){
+//                System.out.print(y + " ");
+//            }
+//            System.out.println();
+//        }
+    }
+}

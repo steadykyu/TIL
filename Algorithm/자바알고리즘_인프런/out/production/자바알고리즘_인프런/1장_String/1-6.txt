@@ -1,0 +1,31 @@
+/**
+ * String 클래스의 contains 메서드를 활용한 방법
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public String solution(String str){
+        String answer = "";
+
+        char[] strArray = str.toCharArray();
+
+        for(char ch : strArray){
+            if(!answer.contains(String.valueOf(ch))) answer+=ch;
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        bw.write(T.solution(word));
+        bw.flush();
+        bw.close();
+    }
+}

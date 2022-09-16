@@ -1,0 +1,41 @@
+import java.util.*;
+
+//AbaAeCe
+//baeeACA
+import java.util.*;
+class Main {
+    public String solution(String str1, String str2) {
+        HashMap<Character, Integer> map1 = new HashMap<>();
+        HashMap<Character, Integer> map2 = new HashMap<>();
+//        System.out.println(str1 + " "+ str2);  한번에 다 복사해서 넣으면 값이 안바뀌는 구조 발견 -> 테스트 케이스를 한줄씩 복사해서 넣자.
+
+        // key에 따른 개수 넣어주기
+        for(char ch : str1.toCharArray()){
+            map1.put(ch,map1.getOrDefault(ch,0)+1);
+        }
+
+        for(char ch : str2.toCharArray()){
+            map2.put(ch,map2.getOrDefault(ch,0)+1);
+        }
+
+//        for(char ch : map1.keySet()){
+//            System.out.println(ch + " " + map1.get(ch) + " " + map2.get(ch));
+//        }
+
+        // 한 case라도 다른 경우는 아나그램이 아니라고 리턴해주기.
+        String answer = "YES";
+        for(char ch : map1.keySet()){
+            if(map1.get(ch) != map2.get(ch)) answer ="NO";
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str1 =kb.next();
+        String str2 =kb.next();
+        System.out.println(T.solution(str1, str2));
+    }
+}

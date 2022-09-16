@@ -1,0 +1,38 @@
+/**
+ * 해답지의 indexOF 와 subString을 활용한 방법도 봐보기.
+ */
+
+import java.io.*;
+
+class Main {
+    public String solution(String word){
+
+        String answer = "";
+
+        String[] strArray = word.split(" ");
+        int max = 0;
+        for(String str : strArray){
+            int temp = str.length();
+            if(max < temp){
+                max = temp;
+                answer = str;
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        String answer = T.solution(word);
+
+        bw.write(answer);
+        bw.flush();
+        bw.close();
+    }
+}
+

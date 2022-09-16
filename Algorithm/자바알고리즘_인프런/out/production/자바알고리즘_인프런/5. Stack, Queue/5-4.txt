@@ -1,0 +1,40 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+
+ * -----------------------------구현
+ * 
+ */
+//352+*9-
+class Main {
+    public int solution(String str) {
+        Stack<Integer> stack = new Stack<>();
+       int answer = 0;
+
+       for(char ch : str.toCharArray()){
+           if('0'<= ch && ch <= '9') stack.push(Character.getNumericValue(ch));
+               // Character -> int or Integer
+           else if(ch=='+') stack.push(stack.pop() + stack.pop());
+           else if(ch=='-') stack.push(-1 * stack.pop() + stack.pop());
+           else if(ch =='*') stack.push(stack.pop() * stack.pop());
+           else if(ch =='/') stack.push(stack.pop() / stack.pop());
+           else return -1;
+
+//           for(int i=0; i<stack.size();i++){
+//               System.out.print(stack.get(i) + " / ");
+//           }
+//           System.out.println();
+       }
+
+       answer = stack.pop();
+       return answer;
+    }
+//(2 + 5) * 3 -9
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        String str = in.next();
+
+        System.out.println(T.solution(str));
+    }
+}

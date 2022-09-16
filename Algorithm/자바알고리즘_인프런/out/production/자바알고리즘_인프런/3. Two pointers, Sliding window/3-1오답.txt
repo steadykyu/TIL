@@ -1,0 +1,56 @@
+/**
+ * Two pointer를 사용해야 시간복잡도가 훨씬 낮으므로 처리가 가능하다.
+ */
+
+import java.util.*;
+class Main {
+    public int[] solution(int n,int m, int[] arrN, int[] arrM) {
+        int[] answer = new int[n+m];
+
+        // 1. 두 array를 다 집어넣는다.
+        for(int i=0;i<n;i++){
+            answer[i] = arrN[i];
+        }
+        for(int j=0;j<m;j++){
+            answer[n+j] = arrM[j];
+        }
+        // 2. 오름차순 정렬시킨다.(버블정렬)
+        for(int i=1; i< answer.length; i++){
+            for(int j=0; j<answer.length-i;j++){
+                if(answer[j] > answer[j+1]) {
+                    int tmp = answer[j];
+                    answer[j] = answer[j+1];
+                    answer[j+1] = tmp;
+                }
+//                for(int k = 0; k< answer.length; k++){
+//                    System.out.printf(answer[k]+" ");
+//                }
+//                System.out.println();
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+
+        int n= kb.nextInt();
+        int[] arrN=new int[n];
+
+        for(int i=0;i<n;i++){
+            arrN[i] = kb.nextInt();
+        }
+
+        int m=kb.nextInt();
+        int[] arrM=new int[m];
+        for(int i=0;i<m;i++){
+            arrM[i] = kb.nextInt();
+        }
+
+        int[] answer = T.solution(n,m,arrN,arrM);
+        for(int i = 0; i< answer.length; i++){
+            System.out.printf(answer[i]+" ");
+        }
+    }
+}

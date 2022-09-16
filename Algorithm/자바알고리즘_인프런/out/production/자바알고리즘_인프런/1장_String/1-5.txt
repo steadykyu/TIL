@@ -1,0 +1,43 @@
+/**
+ * ASCII 값으로 비교할줄 알았는데, Character 클래스에는 알파벳만 구별해주는 isAlphabetic()메서드가 존재한다.
+ * 코드로만 이해하기 보다는, 그림으로 이해하거나 노트에 그려서 확인해보아야 알기 쉽다.
+ */
+
+import java.io.*;
+import java.util.*;
+class Main {
+    public String solution(String str){
+        String answer = "";
+
+        char[] s = str.toCharArray();
+        int lt = 0;
+        int rt = str.length() -1;
+        // 알파벳이 아닐때는 lt, rt 값수정을 통해 다른 문자를 가리키도록 하고
+        // 서로 알파벳 일때는 lt, rt 값에 해당하는 문자값의 위치를 서로 바꾸어준 후 lt, rt 값을 수정해준다.
+        while(lt < rt){
+            if(!Character.isAlphabetic(s[lt])) lt++;
+            else if(!Character.isAlphabetic(s[rt])) rt--;
+            else{
+                char tmp = s[lt];
+                s[lt] = s[rt];
+                s[rt] = tmp;
+                lt++;
+                rt--;
+            }
+        }
+        answer = String.valueOf(s);
+        return answer;
+    }
+
+    public static void main(String[] args) throws IOException {
+        Main T = new Main();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        String word = br.readLine();
+
+        bw.write(T.solution(word));
+        bw.flush();
+        bw.close();
+    }
+}

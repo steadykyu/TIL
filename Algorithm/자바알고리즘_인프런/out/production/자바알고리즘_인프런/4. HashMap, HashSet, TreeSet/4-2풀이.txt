@@ -1,0 +1,36 @@
+import java.util.*;
+/**
+ * -----------------------------아이디어
+ * 1. 한 문자열을 key값과 key개수에 대한 Hashmap을 만든다.
+ * 2. 다른 문자열 key값과 비교한다. key가 존재할때, value 값을 -1 시켜준다.
+ * 4. 만약 개수(value)가 0개인 상태, 더 -1을 할 수없는 경우에는 NO를 리턴한다.
+ * 3. 또한 만약 전혀 다른 문자열이 올 경우 "NO"를 리턴한다.
+ *
+ * -----------------------------구현
+ */
+//AbaAeCe
+//baeeACA
+import java.util.*;
+class Main {
+    public String solution(String str1, String str2) {
+        String answer = "YES";
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(char x : str1.toCharArray()){
+            map.put(x, map.getOrDefault(x, 0)+1);
+        }
+        for(char x : str2.toCharArray()){
+            if(!map.containsKey(x) || map.get(x)==0) return answer = "NO"; //return으로 처리해야한다.
+            map.put(x,map.get(x) -1);
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str1 =kb.next();
+        String str2 =kb.next();
+        System.out.println(T.solution(str1, str2));
+    }
+}

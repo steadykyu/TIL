@@ -1,0 +1,65 @@
+/**
+ * 오답 : time limit exeed 가 나왔다.
+ * 현재 내 풀이는 O(N * K)으로 O(N^2)이 된다. 이는 지금 문제처럼 주어진 M값의 범위가 클때 시간 제한이 걸리게 된다.
+ *
+ */
+
+import java.util.*;
+class Main {
+    public int solution(int n, int m, int[] arr){
+        int answer = 0;
+
+        int cnt =0;
+
+        for(int k=1; k<n;k++){
+            int sum =0;
+            // k 크기의 창 만들기
+            for(int i=0; i<k;i++){
+                sum += arr[i];
+            }
+            if(sum == m) {
+                cnt++;
+//                System.out.println(k);
+            }
+
+            for(int i=k; i<n;i++){
+                sum += arr[i] - arr[i-k];
+                if(sum == m) {
+                    cnt++;
+//                    System.out.println(k);
+                }
+            }
+        }
+
+        answer = cnt;
+//        System.out.println("-------------");
+        return answer;
+    }
+    //        //창이 3개일때
+//        for(int i=0; i<3;i++){
+//            sum += arr[i];
+//        }
+//
+//        for(int i=3; i<n;i++){
+//            sum += arr[i] - arr[i-3];
+//        }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+
+        int m=kb.nextInt();
+
+        int[] arr=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=kb.nextInt();
+        }
+
+        /**
+8 6
+1 2 1 3 1 1 1 2
+         */
+        System.out.println(T.solution(n, m, arr));
+    }
+}

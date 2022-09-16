@@ -1,0 +1,48 @@
+import java.util.*;
+class Main {
+    public int solution(int n, int[][] arr){
+        int answer = 0;
+        // 열을 이동하는 행렬값 dy
+        int[] dx = {0,1,2,3,4};
+
+        // cnt - 열에서 같은 것의 개수
+        int max_cnt = 0;
+
+        for(int i = 0; i < n; i++) {
+            int cnt = 0;
+            for (int j = 0; j < 5; j++) {
+                for (int k = 0; k < dx.length; k++) {
+                    int nx = dx[k];
+                    // 자기자신일때
+                    if (nx == i) continue;
+                    // 열들의 값들과 비교
+                    if (arr[i][j] == arr[nx][j]) {
+                        cnt++;
+		break;
+                    }
+                }
+//                System.out.print(cnt+ "/");
+                if (max_cnt < cnt) {
+                    max_cnt = cnt;
+                    answer = i+1;
+                }
+            }
+//            System.out.println();
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n= kb.nextInt();
+        int[][] arr=new int[n][5];
+
+        for(int i=0; i<n; i++){
+            for(int j=0; j<5; j++)
+            arr[i][j]=kb.nextInt();
+        }
+
+        System.out.println(T.solution(n,arr));
+    }
+}

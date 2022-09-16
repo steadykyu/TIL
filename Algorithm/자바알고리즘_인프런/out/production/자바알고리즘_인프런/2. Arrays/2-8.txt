@@ -1,0 +1,46 @@
+/**
+ * 국어 점수 배열에서 왼쪽에서 오른쪽 / 오른쪽에서 오른쪽으로 값 비교를 해준다.
+ * 비교하는 과정에서 값이 작은경우에 등수를 추가시켜주면 등수를 구할 수 있다.
+ *
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * 해답지 처럼 그냥 j에 0을 넣으면, 이중 for문 한번으로 해결 할 수 있다.
+ * (내 답은 이중 for문을 두번하는 비효율적인 코드이다.)
+ */
+
+import java.util.*;
+class Main {
+    public int[] solution(int n, int[] arr){
+
+        int max =0;
+        int[] answer = new int[n];
+// 왼 -> 오
+        for(int i =0; i<n; i++){
+            int rank = 1;
+            for(int j = i+1; j<n;j++){
+                if(arr[i] < arr[j]) rank++;
+            }
+            answer[i] = rank;
+        }
+        // 오 -> 왼
+        for(int i= n-1; i>=0; i--){
+            for(int j=i-1 ; j >=0 ; j--){
+                if(arr[i] < arr[j]) answer[i]++;
+            }
+        }
+
+        return answer;
+    }
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        int n=kb.nextInt();
+        int[] arr=new int[n];
+        for(int i=0; i<n; i++){
+            arr[i]=kb.nextInt();
+        }
+
+        for(int x : T.solution(n,arr)){
+            System.out.print(x + " ");
+        }
+    }
+}

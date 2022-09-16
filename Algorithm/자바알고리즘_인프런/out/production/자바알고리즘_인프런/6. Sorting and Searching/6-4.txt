@@ -1,0 +1,73 @@
+import java.util.*;
+/**
+ * 삽입 정렬
+ * 오름차순
+ * -----------------------------아이디어
+ *
+ * -----------------------------구현
+ * 1. 거꾸로 된 for문 : 그저 idx-1 ~ 0번째 횟수를 시행할 뿐이다.
+ * for(int k=idx-1; k>=0; k--){
+ *     answer[k+1]= answer[k];}
+ *
+ */
+
+//5 9
+//1 2 3 2 6 2 3 5 7
+
+class Main {
+    public int[] solution(int cache, int n, int[] insert) {
+        int[] answer = new int[cache];
+
+        for(int i=0; i<n;i++){
+            int tmp = insert[i]; // insert 값
+            boolean isExist = false;
+            int idx=0;
+
+            // answer에 tmp값이 있는지 없는지 확인
+            for(int j=0; j < cache; j++) {
+                if (answer[j] == tmp) {
+                    isExist = true;
+                    idx = j;        // 같을때의 index값
+                }
+            }
+            // Cache Miss : 값이 없을때
+            // 맨앞에 최신값을 넣고, 뒤로 한칸씩 미룬다.
+            if(isExist==false) {
+                for(int k=cache-2 ; k>=0;k--){
+
+                    answer[k+1] = answer[k];
+                }
+                answer[0] = tmp;
+            }else{
+                // Cache Hit : 값이 있을때
+                // 맨앞에 최신값을 넣고, 발견값 인덱스의 이전값들을 전부 한칸씩 미룬다.
+                for(int k=idx-1; k>=0; k--){
+                    answer[k+1]= answer[k];
+                }
+                answer[0] = tmp;
+            }
+
+//            for(int x : answer){
+//                System.out.print(x + " ");
+//            }
+//            System.out.println();
+        }
+
+        return answer;
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner in=new Scanner(System.in);
+        int cache = in.nextInt();
+        int n = in.nextInt();
+        int[] arr = new int[n];
+
+        for(int i=0 ; i<n; i++){
+            arr[i] = in.nextInt();
+        }
+        for(int x : T.solution(cache,n,arr)){
+            System.out.print(x + " ");
+        }
+    }
+}
