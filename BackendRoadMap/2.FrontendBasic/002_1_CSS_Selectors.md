@@ -19,7 +19,7 @@ Cascading의 연결고리를 무시하는 !important가 있다. 이 important가
 > 정의
 
 HTML의 어떤 tag를 고를건지를 규정하는 문법이다.
-> 문법
+> 문법 ( 아래 실습한 코드를 보면서 보도록 하자)
 ```
 universal *
 type Tag (div..)
