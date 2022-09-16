@@ -136,7 +136,7 @@ selector{
   padding-top: 20px;  etc...
   */
 
-  /* border 풀어쓰기
+  /* border: 대신 구체적으로 풀어쓰는 방법
   border-width: 2px;
   border-style: solid;
   border-color: pink;*/
