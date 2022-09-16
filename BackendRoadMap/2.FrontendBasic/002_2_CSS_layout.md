@@ -45,8 +45,8 @@ span{
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_1.png" width ="30%" height = "30%">
 
 + 대표적인 defalut값이 block level인 div tag 와 inline level인 span tag에 display를 이용하면 설정값을 바꿀 수 있다.
-+ 이때 설정값은 **inline**은 content를 꾸며주는 것이기 때문에 값이 있어야 Web browser에 나타낼 수 있다.
-+ 그리고 **inline**은 content 크기에 맞춰서 크기가 결정된다.
++ 이때 설정값은 **inline-block**은 content를 꾸며주는 것이기 때문에 값이 있어야 Web browser에 나타낼 수 있다.
++ 그리고 **inline-block**은 content 크기에 맞춰서 크기가 결정된다.
 + code와 그림을 보고 inline-block 과 block의 차이를 알자.
 
 ## 3.2 Position
@@ -101,8 +101,9 @@ div, span{
 ```
 > static
 
-css에서 position는 default 값으로 static을 가지고 있다. 이는 html에 정의된 순서대로 브라우저에 보이는 것을 의미한다. <br>
-즉 body안에 있다면 있는 article은 body전체를(브라우저 맨위에서 아래) 범위로 하고 있다.(container의 position을 지우면 확인가능)
+css에서 position는 default 값으로 static을 가진다. 이는 html에 정의된 순서대로 브라우저에 보이는 것을 의미한다. <br>
+즉 body안에 있는 article은 body전체를(브라우저 맨위에서 아래) 범위로 하고 있다.<br>
+(container의 position=relative를 적용시 body전체에 대하여 여백을 적용하는 모습을 볼 수 있다.)
 
 > relative
 
@@ -114,13 +115,13 @@ css에서 position는 default 값으로 static을 가지고 있다. 이는 html�
 
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_3.png">
 
-내 아이템이 담겨있는 상자(container 범위) 안에서 설정한 값만큼 이동한다.
+내 아이템이 담겨있는 상자(article 즉, container 범위) 안에서 설정한 여백 값만큼 이동한다.
 
 > fixed
 
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_4.png">
 
-상자가 아닌 밖의 Web page에서 설정한 값만큼 이동한다.
+상자가 아닌 밖의 Web page에서 설정한 여백 값만큼 이동한다.
 
 > sticky
 

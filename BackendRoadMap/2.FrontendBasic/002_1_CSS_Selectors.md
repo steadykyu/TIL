@@ -19,7 +19,7 @@ Cascading의 연결고리를 무시하는 !important가 있다. 이 important가
 > 정의
 
 HTML의 어떤 tag를 고를건지를 규정하는 문법이다.
-> 문법
+> 문법 ( 아래 실습한 코드를 보면서 보도록 하자)
 ```
 universal *
 type Tag (div..)
@@ -60,7 +60,7 @@ Attribute []
 + ol tag는 container 이기때문에 기본적으로는 사용자에게 보여지지 않는다.
 + li tag는 사용자에게 보이는 방식이다.
 + div는 텅빈 박스이므로 보이지 않는다.
-+ button 과 a는 알맞게 브라우져에 보이고 있다.
++ button 과 a는 알맞게 브라우져에 보이고 있다.(inline 에 알맞게 웹에 출력되고 있다.)
 
 
 > css 
@@ -136,7 +136,7 @@ selector{
   padding-top: 20px;  etc...
   */
 
-  /* border 풀어쓰기
+  /* border: 대신 구체적으로 풀어쓰는 방법
   border-width: 2px;
   border-style: solid;
   border-color: pink;*/
@@ -145,7 +145,7 @@ selector{
 
 + margin 는 content 밖에 존재하는 space를 말한다.
 
-+ 자세한 내용은 아래링크를 참고하자
++ 더 많은 Selectors 종류들과 내용들은 아래링크들을 참고하자
 
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference  :  레퍼런스 page <br>
 https://flukeout.github.io/         : CSS dinner 게임.
