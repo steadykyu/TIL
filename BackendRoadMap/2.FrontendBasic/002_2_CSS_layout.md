@@ -101,8 +101,9 @@ div, span{
 ```
 > static
 
-css에서 position는 default 값으로 static을 가지고 있다. 이는 html에 정의된 순서대로 브라우저에 보이는 것을 의미한다. <br>
-즉 body안에 있다면 있는 article은 body전체를(브라우저 맨위에서 아래) 범위로 하고 있다.(container의 position을 지우면 확인가능)
+css에서 position는 default 값으로 static을 가진다. 이는 html에 정의된 순서대로 브라우저에 보이는 것을 의미한다. <br>
+즉 body안에 있는 article은 body전체를(브라우저 맨위에서 아래) 범위로 하고 있다.<br>
+(container의 position=relative를 적용시 body전체에 대하여 여백을 적용하는 모습을 볼 수 있다.)
 
 > relative
 
