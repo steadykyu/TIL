@@ -10,14 +10,21 @@ class Node{
 }
 public class Main {
     Node root;
-    public void DFS(Node root){
-        if(root==null) return; // 재귀 결과, 말단 노드까지 온 경우
-        else{
-//            System.out.printf(root.data+ " "); // 전위 순회한다.
-            DFS(root.lt);       // 왼쪽 자식노드로 간다.
-//            System.out.printf(root.data+ " "); // 중위 순회한다.
-            DFS(root.rt);       // 오른쪽 자식노드로 간다.
-//            System.out.println(root.data + " "); // 후위 순회한다.
+    public void BFS(Node root){
+        Queue<Node> Q = new LinkedList<>();
+        Q.offer(root);
+        int L = 0;
+        while(!Q.isEmpty()){
+            int len=Q.size();
+            System.out.print(L+" : ");
+            for(int i=0; i<len; i++){
+                Node cur = Q.poll();
+                System.out.print(cur.data+" ");
+                if(cur.lt!=null) Q.offer(cur.lt);
+                if(cur.rt!=null) Q.offer(cur.rt);
+            }
+            L++;
+            System.out.println();
         }
     }
 
@@ -30,6 +37,6 @@ public class Main {
         tree.root.lt.rt = new Node(5);
         tree.root.rt.lt = new Node(6);
         tree.root.rt.rt = new Node(7);
-        tree.DFS(tree.root);
+        tree.BFS(tree.root);
     }
 }
