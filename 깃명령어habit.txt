@@ -5,5 +5,5 @@ git pull origin master
 
 
 git add -A
-git commit -m "프로그래머스_1단계"
+git commit -m "폴더위치변경"
 git push
