@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css와 연결 -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    
+    <title>youtube_cloneCoding</title>
+    <!-- icons -->
+    <script 
+    src="https://kit.fontawesome.com/b0ca4112f2.js"
+     crossorigin="anonymous"
+     ></script>
+     <!-- JS와 연결 -->
+     <script src="main.js" defer></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fa-brands fa-youtube"></i>
+            <span class="title">Youtube</span>
+        </div>
+
+        <div class = "icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </div>
+    </header>
+    <!-- player -->
+    <section class="player">
+        <video controls width="250">
+            <source src="/video/showYourself.mp4">
+        </video>
+    </section>
+    <!-- infoAndUpNext 상자추가 -->
+    <div class="infoAndUpNext">
+            <!-- Video Info -->
+    <section class="info">
+        <!-- Metadata -->
+        <div class="metadata">
+            <ul class="hashtags">
+                <li>#DreamCoding</li>
+                <li>#DreamCoders</li>
+                <li>#Ellie</li>
+            </ul>
+            <div class="titleAndButton">
+                <span class = "title clamp">  
+                    Clone Coding Youtube mobile Website 유튜브 모바일 웹사이트
+                     따라만들기|프론트엔드 개발자 입문편. 누구나 따라할수 있습니다. 화이팅하세요
+                     너도 할수 있다!! 늦은건 없다!! 앉아서 코딩하면 늘수 있어!!
+                </span>
+                <button class="moreBtn"><i class="fa-solid fa-caret-down"></i></button>
+            </div>
+            <span class="views">1M views 1 month age</span>
+        </div>
+        <!-- Actions -->
+        <ul class="actions">
+            <li>
+                <button><i class="active fa-solid fa-thumbs-up"></i><span>100</span></button>
+            </li>
+            <li>
+                <button><i class="fa-solid fa-thumbs-down"></i><span>0</span></button>
+            </li>
+            <li>
+                <button><i class="fa-solid fa-share"></i><span>share</span></button>
+            </li>
+            <li>
+                <button><i class="fa-solid fa-plus"></i><span>save</span></button>
+            </li>
+            <li>
+                <button><i class="fa-solid fa-flag"></i><span>Report</span></button>
+            </li>
+        </ul>
+        <!-- Channel Description -->
+        <div class="channel">
+            <div class="metadata">
+                <img src="img/avatar.png" alt="">
+                <div class="info">
+                    <span class="name">
+                        steadyKyu
+                    </span>
+                    <span class="subscribers">
+                        1M subscribers
+                    </span>
+                </div>
+            </div>
+            <button class="subscribe">subscribe</button>
+        </div>
+
+    </section>
+    <!-- Up Next -->
+    <section class="upNext">
+        <span class="title">Up next</span>
+        <ul>
+            <li class="item">
+                <div class="img"><img src="/img/파이리.jpg" alt=""></div>
+                <div class="info">
+                    <span class="title">이 귀여운 파이리를 보세요.
+                        뜨거운걸 좋아하고, 싫어하는건 물입니다.
+                    </span>
+                    <span class="name">steadyKyu</span>
+                    <span class="views">5M views</span>
+                </div>
+                <button class="moreBtn">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </li>
+            <li class="item">
+                <div class="img"><img src="/img/꼬부기.jpg" alt=""></div>
+                <div class="info">
+                    <span class="title">더 귀여운 꼬부기를 보세요
+                        물을 좋아하고, 웃을때 가장 귀엽습니다.
+                    </span>
+                    <span an class="name">steadyKyu</span>
+                    <span class="views">7M views</span>
+                </div>
+                <button class="moreBtn">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </li>
+            <li class="item">
+                <div class="img"><img src="/img/이상해씨.jpg" alt=""></div>
+                <div class="info">
+                    <span class="title">
+                        이상해씨는 이상하지 않습니다.
+                    이상해씨처럼 촉촉해지고 싶다. 
+                    </span>
+                    <span class="name">
+                        steadyKyu
+                    </span>
+                    <span class="views">
+                        1M views
+                    </span>
+                </div>
+                <button class="moreBtn">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </li>
+        </ul>
+    </section>  
+    </div>
+</body>
+</html>

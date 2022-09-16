@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>WEB1 - WEB</title>
+  <meta charset = "utf-8">
+  <link rel = "stylesheet" href = "style.css">
+  <script>
+    var Links = {
+      setColor:function LinkssetColor(color){
+      var alist = document.querySelectorAll('a');
+      var i = 0;
+      while(i < alist.length){
+          alist[i].style.color = color;
+          i= i+1;
+      }
+    }
+    }
+    var Body = {
+      setColor:function(color){
+      document.querySelector('body').style.color=color;
+      }
+      ,setBackgroundColor:function(color){
+      document.querySelector('body').style.backgroundColor=color;
+      }
+    }
+    function nightDayHandler(self){
+      var target = document.querySelector('body');
+      if(self.value === 'night'){
+      Body.setBackgroundColor('black');
+      Body.setColor('white');
+      Links.setColor('powderblue');
+      self.value = 'day';
+      } else{
+      Body.setBackgroundColor('white');
+      Body.setColor('black');
+      Links.setColor('blue');
+      self.value = 'night';
+      }
+    }
+  </script>
+  
+</head>
+<body>
+<h1><a href="index.html">WEB</a></h1>
+<!--ol = ordered list
+    ul = unordered list
+   ol,ul(부모)의 li(자식)이다.-->
+<!--비효율 코드(중복많음)   <input id="night_day" type = "button" value = "night" onclick="
+     if(document.querySelector('#night_day').value === 'night'){
+     document.querySelector('body').style.backgroundColor='black';
+     document.querySelector('body').style.color='white';
+     document.querySelector('#night_day').value = 'day';
+     } else{
+     document.querySelector('body').style.backgroundColor='white';
+     document.querySelector('body').style.color='black';
+     this.value = 'night';
+     }
+   "> -->
+
+   <input id="night_day" type = "button" value = "night" onclick="
+    nightDayHandler(this);
+   ">
+
+<div id="grid">
+  <ol>
+    <li><a href="1.html">HTML</a><br></li>
+    <li><a href="2.html">CSS</a><br></li>
+    <li><a href="3.html">JAVASCRIPT</a><br></li>
+  </ol>
+  <!--<ul>
+    <li>egoing</li>
+    <li>k8805</li>
+    <li>규하</li>
+  </ul>-->
+  <div id = "article">
+    <h2>Web이란 무엇인가?</h2>
+
+    <!--Tag 문법을 이용해서 진하게와 밑줄을 그어보았다.<br><br>-->
+    <p>웹의 다른 뜻은 다음과 같다.
+
+    웹(web)은 기본적으로 거미줄을 뜻한다.
+    월드 와이드 웹(World Wide Web)의 약자
+    월드와이드웹: 세계 최초의 웹 브라우저
+    웹 2.0, 웹 3.0
+    웹사이트(website)
+    웹(WEB)은 도널드 커누스가 제안한 프로그래밍 시스템이다.
+    웹(Web)은 그놈 데스크톱의 웹 브라우저이다.
+    월간 웹은 1998년 창간된 월간지이다.</p>
+  </div>
+</div>
+https://unsplash.com은 저작권없이 사진을 가져올 수 있다.
+태그 이름과 속성값을 잘 넣어보기.
+<img src="mountain.jpg" width ="80%">
+
+</body>
+</html>
