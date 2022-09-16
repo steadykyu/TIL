@@ -115,13 +115,13 @@ css에서 position는 default 값으로 static을 가진다. 이는 html에 정�
 
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_3.png">
 
-내 아이템이 담겨있는 상자(container 범위) 안에서 설정한 값만큼 이동한다.
+내 아이템이 담겨있는 상자(article 즉, container 범위) 안에서 설정한 여백 값만큼 이동한다.
 
 > fixed
 
 <img src="https://github.com/steadykyu/TIL/blob/master/BackendRoadMap/2.FrontendBasic/img/2_4.png">
 
-상자가 아닌 밖의 Web page에서 설정한 값만큼 이동한다.
+상자가 아닌 밖의 Web page에서 설정한 여백 값만큼 이동한다.
 
 > sticky
 
