@@ -1,42 +1,31 @@
 import java.util.*;
 
-class Node{
-    int data;
-    Node lt, rt;
-    public Node(int val){
-        data=val;
-        lt=rt=null;
-    }
-}
 public class Main {
-    Node root;
-    public void BFS(Node root){
-        Queue<Node> Q = new LinkedList<>();
-        Q.offer(root);
-        int L = 0;
-        while(!Q.isEmpty()){
-            int len=Q.size();
-            System.out.print(L+" : ");
-            for(int i=0; i<len; i++){
-                Node cur = Q.poll();
-                System.out.print(cur.data+" ");
-                if(cur.lt!=null) Q.offer(cur.lt);
-                if(cur.rt!=null) Q.offer(cur.rt);
+    static int n;
+    static int[] ch;
+
+    public void DFS(int L){
+        if(L==n+1){
+            //종착지점 일때
+            String tmp = "";
+            for(int i=1; i<=n;i++){
+                if(ch[i]==1) tmp += (i + " ");
             }
-            L++;
-            System.out.println();
+            if(tmp.length() > 0) System.out.println(tmp);
+            // 공집합 제외하고 출력한다.
+        }
+        else{
+            ch[L] = 1;   // 부분집합으로 사용한다.
+            DFS(L+1); // 왼쪽으로 뻗을떄
+            ch[L] = 0;   // 부분집합으로 사용하지 않는다.
+            DFS(L+1) ; // 오른쪽으로 뻗을때
         }
     }
 
-    public static void main(String[] args) {
-        Main tree = new Main();
-        tree.root = new Node(1);    // data 값 설정
-        tree.root.lt = new Node(2); // node 값 설정 및 하위 node data 설정
-        tree.root.rt = new Node(3);
-        tree.root.lt.lt = new Node(4);
-        tree.root.lt.rt = new Node(5);
-        tree.root.rt.lt = new Node(6);
-        tree.root.rt.rt = new Node(7);
-        tree.BFS(tree.root);
+    public static void main(String[] args){
+        Main T = new Main();
+        n=3;
+        ch=new int[n+1];
+        T.DFS(1);
     }
 }
