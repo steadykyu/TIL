@@ -1,31 +1,29 @@
 import java.util.*;
 
+class Node{
+    int data;
+    Node lt, rt;
+    public Node(int val){
+        data=val;
+        lt=rt=null;
+    }
+}
 public class Main {
-    static int n;
-    static int[] ch;
+    Node root;
 
-    public void DFS(int L){
-        if(L==n+1){
-            //종착지점 일때
-            String tmp = "";
-            for(int i=1; i<=n;i++){
-                if(ch[i]==1) tmp += (i + " ");
-            }
-            if(tmp.length() > 0) System.out.println(tmp);
-            // 공집합 제외하고 출력한다.
-        }
-        else{
-            ch[L] = 1;   // 부분집합으로 사용한다.
-            DFS(L+1); // 왼쪽으로 뻗을떄
-            ch[L] = 0;   // 부분집합으로 사용하지 않는다.
-            DFS(L+1) ; // 오른쪽으로 뻗을때
-        }
+    int minL = 100;
+    public int DFS(int L, Node root){
+        if(root.lt==null && root.rt==null) return L;
+        else return Math.min(DFS(L+1, root.lt), DFS(L+1, root.rt));
     }
 
     public static void main(String[] args){
-        Main T = new Main();
-        n=3;
-        ch=new int[n+1];
-        T.DFS(1);
+        Main tree = new Main();
+        tree.root = new Node(1);
+        tree.root.lt = new Node(2);
+        tree.root.rt = new Node(3);
+        tree.root.lt.lt = new Node(4);
+        tree.root.lt.rt = new Node(5);
+        System.out.println(tree.DFS(0, tree.root));
     }
 }
