@@ -1,33 +1,30 @@
 import java.util.*;
 public class Main {
-    static int N, M;
-    static int answer = Integer.MIN_VALUE;
+    static int[] pm;
+    static int n, m;
 
-    public void DFS(int L, int time, int point, int[] timeArr, int[] pointArr) {
-        if(time > M) return;
-        if(L == N){
-            answer = Math.max(point,answer);
+    public void DFS(int L) {
+        if(L == m){
+            for(int x : pm) {
+                System.out.print(x + " ");
+            }
+            System.out.println();
         }
         else{
-            DFS(L+1, time + timeArr[L], point + pointArr[L],timeArr,pointArr);
-            DFS(L+1, time,point,timeArr,pointArr);
+           for(int i=1; i<=n; i++){
+               pm[L]=i; // line 15
+               DFS(L+1);    // DFS가 n번의 호출이 일어난다.
+           }
         }
     }
 
     public static void main(String[] args){
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        N = kb.nextInt();       // 문제수
-        M = kb.nextInt();       // 제한 시간
-        int[] timeArray = new int[N];
-        int[] pointArray = new int[N];
+        n = kb.nextInt();       // 문제수
+        m = kb.nextInt();       // 제한 시간
+        pm = new int[m];
 
-        for(int i=0; i<N;i++){
-            pointArray[i] = kb.nextInt();
-            timeArray[i] = kb.nextInt();
-        }
-
-        T.DFS(0,0,0,timeArray,pointArray);
-        System.out.println(T.answer);
+        T.DFS(0);
     }
 }
