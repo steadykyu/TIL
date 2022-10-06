@@ -1,30 +1,18 @@
 import java.util.*;
 public class Main {
-    static int[] pm;
-    static int n, m;
-
-    public void DFS(int L) {
-        if(L == m){
-            for(int x : pm) {
-                System.out.print(x + " ");
-            }
-            System.out.println();
-        }
-        else{
-           for(int i=1; i<=n; i++){
-               pm[L]=i; // line 15
-               DFS(L+1);    // DFS가 n번의 호출이 일어난다.
-           }
-        }
+    int[][] dy = new int[35][35];
+    public int DFS(int n, int r) {
+        if(dy[n][r] > 0) return dy[n][r]; // 행렬안에 값이 존재하면, 그 값을 그대로 가져온다.
+        if(n==r || r==0) return 1;
+        else return dy[n][r] = DFS(n-1, r-1) + DFS(n-1, r);
     }
 
     public static void main(String[] args){
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        n = kb.nextInt();       // 문제수
-        m = kb.nextInt();       // 제한 시간
-        pm = new int[m];
+        int n = kb.nextInt();
+        int r = kb.nextInt();
 
-        T.DFS(0);
+        System.out.println(T.DFS(n, r));
     }
 }
