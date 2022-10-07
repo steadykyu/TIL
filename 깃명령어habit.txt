@@ -5,5 +5,5 @@ git pull origin master
 
 
 git add -A
-git commit -m "그림수정"
+git commit -m "7장완료"
 git push
