@@ -5,6 +5,10 @@ class Point{
         this.x=x;
         this.y=y;
     }
+
+    public int getDis(Point p2){
+        return Math.abs(this.x - p2.x) + Math.abs(this.y - p2.y);
+    }
 }
 class Main {
     static int n, m,len, answer = Integer.MAX_VALUE;
@@ -13,10 +17,16 @@ class Main {
     // 조합구하기
     public void DFS(int L, int s) {
         if(L==m){
-            for (int x: combi) {
-                System.out.print(x+" ");
+            int sum = 0;
+            //거리구하기
+            for(Point h : hs){
+                int dis = Integer.MAX_VALUE;
+                for(int i : combi){
+                    dis = Math.min(h.getDis(pz.get(i)), dis); // 한 집에서의 피자 배달 거리
+                }
+                sum += dis;   // 도시의 피자 배달 거리
             }
-            System.out.println();
+            answer = Math.min(answer, sum); // 도시의 피자 배달 거리의 최소값
         }else {
             for(int i=s; i < len;i++){
                 combi[L] = i;
@@ -43,6 +53,6 @@ class Main {
         len = pz.size();
         combi=new int[m];
         T.DFS(0,0); // pz list에 대하여 조합 경우의 수를 만든다.
-
+        System.out.println(answer);
     }
 }
