@@ -9,13 +9,13 @@
 로컬 환경을 모두 github에 동기화하여 github repository가 최신화 된 상태여야 한다.
 로컬 repository의 git push가 이전 브랜치(master)와 연동 되도록 되어있기 때문에 모두 지워야 하기 때문이다.
 
+git log를 활용하여 비교해보자.
+
 <img src = "https://github.com/steadykyu/TIL/tree/main/git/img/mastertimain_1.png">
 
 과거 부터 현재까지의 기록을 모두 저장하고 있는 git repository master branch는 github에서 쉽게 변경이 가능하다.
 
-```
-
-```
+> 로컬에 다시 연동하기
 
 변경한 git repository를 다시 Local repository로 옮겨주자. git clone을 이용하면 쉽게 옮겨 줄 수 있다. 옮긴 후에는 앞으로 main에 들어가도록 아래의 push 작업을 해주자.
 ```
@@ -23,3 +23,9 @@ git add .
 git commit -m "masterTomain"
 git push -u origin main
 ```
+
+> github 알림창
+
+<img src = "https://github.com/steadykyu/TIL/tree/main/git/img/mastertimain_1.png">
+
+github에서 작업한 git 소스 코드를 보여준다.
