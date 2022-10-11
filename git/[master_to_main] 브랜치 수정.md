@@ -1,0 +1,1 @@
+이전 master로 저장되어 있는 branch들을 모두 main으로 바꾸어주자
