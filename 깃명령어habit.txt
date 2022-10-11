@@ -1,9 +1,9 @@
 git fetch
-git pull origin master
+git pull origin main
 
 
 
 
 git add -A
-git commit -m "7장완료"
+git commit -m "Java내용추가"
 git push
