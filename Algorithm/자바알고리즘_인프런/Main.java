@@ -1,42 +1,45 @@
 import java.util.*;
-class Time implements Comparable<Time>{
-    public int s,e;
-    Time(int s, int e){
-        this.s = s;
-        this.e = e;
+class Lecture implements Comparable<Lecture>{
+    public int money;
+    public int date;
+    Lecture(int money, int date){
+        this.money = money;
+        this.date = date;
     }
     @Override
-    public int compareTo(Time o){
-        // 오름차순 형식
-        if(this.e == o.e){return this.s - o.s;
-        }else{return this.e - o.e;}
+    public int compareTo(Lecture o){
+        return o.date - this.date;
     }
 }
 class Main {
-    // 조합구하기
-    public int solution(ArrayList<Time> arr, int n){
-        int cnt=0;
+    static int n, max = Integer.MIN_VALUE;
+    public int solution(ArrayList<Lecture> arr){
+        int answer=0;
+        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
         Collections.sort(arr);
-        int endTime = Integer.MIN_VALUE;
-        for(Time ob : arr){
-            if(endTime <= ob.s){
-                cnt++;
-                endTime = ob.e;
+        int j=0;
+        // 일자에 대한 for문
+        for(int i=max; i>=1; i--){
+            for( ; j<n; j++){
+                if(arr.get(j).date<i) break;
+                pQ.offer(arr.get(j).money);
             }
+            if(!pQ.isEmpty()) answer += pQ.poll();
         }
-        return cnt;
+        return answer;
     }
 
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
-        ArrayList<Time> arr = new ArrayList<Time>();
+        n = kb.nextInt();
+        ArrayList<Lecture> arr = new ArrayList<Lecture>();
         for(int i=0; i<n; i++){
-            int s=kb.nextInt();
-            int e=kb.nextInt();
-            arr.add(new Time(s,e));
+            int m = kb.nextInt();
+            int d = kb.nextInt();
+            arr.add(new Lecture(m,d));
+            if(d>max) max = d;  // 최대 일수를 max에 넣는다.
         }
-        System.out.println(T.solution(arr, n));
+        System.out.println(T.solution(arr));
     }
 }
