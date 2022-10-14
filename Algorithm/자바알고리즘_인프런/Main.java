@@ -1,45 +1,60 @@
 import java.util.*;
-class Lecture implements Comparable<Lecture>{
-    public int money;
-    public int date;
-    Lecture(int money, int date){
-        this.money = money;
-        this.date = date;
+
+class Edge implements Comparable<Edge>{
+    public int v1;
+    public int v2;
+    public int cost;
+    Edge(int v1, int v2, int cost){
+        this.v1 = v1;
+        this.v2 = v2;
+        this.cost = cost;
     }
     @Override
-    public int compareTo(Lecture o){
-        return o.date - this.date;
+    public int compareTo(Edge o) {
+        return this.cost - o.cost;
     }
 }
 class Main {
-    static int n, max = Integer.MIN_VALUE;
-    public int solution(ArrayList<Lecture> arr){
-        int answer=0;
-        PriorityQueue<Integer> pQ = new PriorityQueue<>(Collections.reverseOrder());
-        Collections.sort(arr);
-        int j=0;
-        // 일자에 대한 for문
-        for(int i=max; i>=1; i--){
-            for( ; j<n; j++){
-                if(arr.get(j).date<i) break;
-                pQ.offer(arr.get(j).money);
-            }
-            if(!pQ.isEmpty()) answer += pQ.poll();
-        }
-        return answer;
-    }
-
+    static int[] unf;
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        n = kb.nextInt();
-        ArrayList<Lecture> arr = new ArrayList<Lecture>();
-        for(int i=0; i<n; i++){
-            int m = kb.nextInt();
-            int d = kb.nextInt();
-            arr.add(new Lecture(m,d));
-            if(d>max) max = d;  // 최대 일수를 max에 넣는다.
+        int n =kb.nextInt();
+        int m = kb.nextInt();
+        unf = new int[n+1];
+        ArrayList<Edge> arr = new ArrayList<>();
+        for(int i=1; i<=n; i++) unf[i] = i;
+        for(int i=0; i<m; i++){
+            int a = kb.nextInt();
+            int b = kb.nextInt();
+            int c = kb.nextInt();
+            arr.add(new Edge(a,b,c));   // 각 간선 주입
         }
-        System.out.println(T.solution(arr));
+        int answer = 0; int cnt=0;
+        Collections.sort(arr);
+        for(Edge ob : arr){
+            int fv1 = Find(ob.v1);
+            int fv2 = Find(ob.v2);
+            if(fv1 != fv2){
+                answer += ob.cost;
+                cnt++;
+                if(cnt == n-1) break;
+                Union(ob.v1,ob.v2);
+            }
+        }
+        System.out.println(answer);
+    }
+
+    public static void Union(int a, int b) {
+        int fa = Find(a);
+        int fb = Find(b);
+        if(fa != fb) unf[fa]=fb;
+    }
+
+    public static int Find(int v) {
+        if(v==unf[v]) return v;
+        else return unf[v] = Find(unf[v]);
     }
 }
+
+
