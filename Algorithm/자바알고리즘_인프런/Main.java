@@ -1,60 +1,53 @@
 import java.util.*;
 
 class Edge implements Comparable<Edge>{
-    public int v1;
-    public int v2;
+    public int vex;
     public int cost;
-    Edge(int v1, int v2, int cost){
-        this.v1 = v1;
-        this.v2 = v2;
+
+    public Edge(int vex, int cost) {
+        this.vex = vex;
         this.cost = cost;
     }
+
     @Override
     public int compareTo(Edge o) {
         return this.cost - o.cost;
     }
 }
 class Main {
-    static int[] unf;
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        int n =kb.nextInt();
-        int m = kb.nextInt();
-        unf = new int[n+1];
-        ArrayList<Edge> arr = new ArrayList<>();
-        for(int i=1; i<=n; i++) unf[i] = i;
+        int n =kb.nextInt();        // 도시의 수(정점의 수)
+        int m = kb.nextInt();       // 도로의 수(간선의 수)
+
+        ArrayList<ArrayList<Edge>> graph = new ArrayList<ArrayList<Edge>>();
+        for(int i=0; i<=n;i++){  // 일부로 idx 맞춤
+            graph.add(new ArrayList<Edge>());
+        }
+        int[] ch = new int[n+1]; // check 배열
         for(int i=0; i<m; i++){
             int a = kb.nextInt();
             int b = kb.nextInt();
             int c = kb.nextInt();
-            arr.add(new Edge(a,b,c));   // 각 간선 주입
+            graph.get(a).add(new Edge(b, c)); // a node -> bnode 갈때 비용 c
+            graph.get(b).add(new Edge(a, c)); // a node -> bnode 갈때 비용 c
         }
-        int answer = 0; int cnt=0;
-        Collections.sort(arr);
-        for(Edge ob : arr){
-            int fv1 = Find(ob.v1);
-            int fv2 = Find(ob.v2);
-            if(fv1 != fv2){
-                answer += ob.cost;
-                cnt++;
-                if(cnt == n-1) break;
-                Union(ob.v1,ob.v2);
+        int answer = 0;
+        PriorityQueue<Edge> pQ = new PriorityQueue<>();
+        pQ.offer(new Edge(1,0));
+
+        while(!pQ.isEmpty()) {
+            Edge tmp = pQ.poll();
+            int ev = tmp.vex;   // endvertax
+            if(ch[ev]==0){  // 회로 방지
+                ch[ev] =1;
+                answer += tmp.cost;
+                for(Edge ob : graph.get(ev)){
+                    if(ch[ob.vex]==0) pQ.offer(new Edge(ob.vex, ob.cost));
+                }
             }
         }
         System.out.println(answer);
     }
-
-    public static void Union(int a, int b) {
-        int fa = Find(a);
-        int fb = Find(b);
-        if(fa != fb) unf[fa]=fb;
-    }
-
-    public static int Find(int v) {
-        if(v==unf[v]) return v;
-        else return unf[v] = Find(unf[v]);
-    }
 }
-
-
