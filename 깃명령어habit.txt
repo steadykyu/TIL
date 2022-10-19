@@ -5,5 +5,5 @@ git pull origin main
 
 
 git add -A
-git commit -m "Java내용추가"
+git commit -m "6번풀이2"
 git push
