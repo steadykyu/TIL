@@ -5,5 +5,5 @@ git pull origin main
 
 
 git add -A
-git commit -m "3번수정"
+git commit -m "writingFormat작성"
 git push
