@@ -1,28 +1,27 @@
 import java.util.*;
 class Main {
+    static int n,m;
     static int[] dy; // dynamic 의 약자
-    public int solution(int[] arr){
-        int answer=0;
-        dy=new int[arr.length];
-        dy[0]=1;
-        for(int i=1; i<arr.length; i++){
-            int max=0;
-            for(int j=i-1; j>=0; j--){
-                if(arr[j]<arr[i] && dy[j]>max) max=dy[j];
+    public int solution(int coin[]){
+        Arrays.fill(dy, Integer.MAX_VALUE);
+        dy[0]=0;
+        for(int i=0; i<n;i++){
+            for(int j=coin[i]; j<=m; j++){
+                dy[j]=Math.min(dy[j], dy[j-coin[i]]+1);
             }
-            dy[i]=max+1;
-            answer=Math.max(answer, dy[i]);
         }
-        return answer;
+        return dy[m];
     }
     public static void main(String[] args) {
         Main T = new Main();
         Scanner kb = new Scanner(System.in);
-        int n = kb.nextInt();
+        n = kb.nextInt();
         int[] arr = new int[n];
         for(int i=0; i<n; i++){
             arr[i] = kb.nextInt();
         }
+        m=kb.nextInt();
+        dy=new int[m+1];
         System.out.println(T.solution(arr));
     }
 }
