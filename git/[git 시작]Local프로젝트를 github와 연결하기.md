@@ -9,11 +9,13 @@ Local 서버 폴더에 있는 프로젝트를 위의 github repository와 연동
 
 2. git clone 이용하기
 
-> 참고
+> 참고1
 
-- github repository에서 local git repository로 옮기기
+github repository에서 local git repository로 옮기기
 
-## Visual Studio Code에서 작업한다.
+> 참고2
+
+Visual Studio Code에서 작업한다.
 
 - 작업할 폴더를 Visual Studio Code에 드래그한다.
 - 위쪽의 터미널을 연다.
