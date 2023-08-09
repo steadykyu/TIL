@@ -1,5 +1,7 @@
 package ch05_LinkedList;
-
+/**
+ * 책은 배열을 이용하여 Linked List를 만들어보고 있다.
+ */
 // StationList 클래스 정의 ( 사용자 정의 역이름, 연결 정보로 이루어진 구조체)
 // 실제 자바의 LinkedList는 아래와 같지 않다. 아래는 간단하게 연결리스트의 자료구조만 보여주는 코드이다.
 class StationList {
@@ -11,7 +13,7 @@ class StationList {
 public class LinkedList{
     // 연결 리스트의 물리적 실체가 되는 배열(요소수는 최대 10)
         // 물리적 : 메모리에 저장되는 실체
-    public static StationList[] list = new StationList[10];
+    public static StationList[] list = new StationList[10]; // 배열을 이용한 LinkedList
 
     // head 선언 (연결리스트의 시작점)
     public static int head;
@@ -82,6 +84,7 @@ public class LinkedList{
     }
 }
 
-// 다만 위 임시 연결리스트의 구조에서 우리 함수는 StationList의 idx에 위치하는 역이름의 다음 순서에 삽입되도록 만들어져있다.
-// 그러므로 만약 연결리스트의 맨앞에 삽입을 하려는 경우, 이미 선언한 "배열" StationList과 문제가 발생한다.
-// 해결을 위해서는 새로운 배열을 만들어 한칸씩 뒤로 미루거나, 배열을 복사하는 방식을 사용해야할 듯 하다.
+// 다만 위 임시 연결리스트의 구조의 삽입 함수는 StationList의 idx에 위치하는 역이름의 다음 순서에 삽입되도록 만들어져있다.
+// 그러므로 만약 연결리스트의 맨앞에 삽입을 하려는 경우, 배열의 크기가 고정되어 있기때문에 이미 선언한 "배열" StationList과 문제가 발생한다.
+
+
